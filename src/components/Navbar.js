@@ -74,8 +74,12 @@ const Navbar = () => {
               Välmående-upplevelsen
             </Link>
             {isWellnessDropdownOpen && (
-              <div className="dropdown-menu">
-                <Link to="/wellness-experience#bastu" className="dropdown-item" onClick={closeMobileMenu}>
+              <div 
+                className="dropdown-menu"
+                onMouseEnter={() => setIsWellnessDropdownOpen(true)}
+                onMouseLeave={() => setIsWellnessDropdownOpen(false)}
+              >
+                <Link to="/bastu" className="dropdown-item" onClick={closeMobileMenu}>
                   Bastu
                 </Link>
                 <Link to="/wellness-experience#zen-tradgard" className="dropdown-item" onClick={closeMobileMenu}>

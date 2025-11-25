@@ -1,0 +1,303 @@
+.bastu-page {
+  background: #ffffff;
+  color: #1f1f1f;
+  padding-top: 80px;
+}
+
+/* Hero Section */
+.bastu-hero {
+  position: relative;
+  min-height: 60vh;
+  padding: 6rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bastu-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 12, 10, 0.5);
+}
+
+.bastu-hero .hero-content {
+  position: relative;
+  max-width: 800px;
+  color: #fff;
+  z-index: 2;
+}
+
+.bastu-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.bastu-hero .hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Intro Section */
+.bastu-intro {
+  padding: 6rem 10vw;
+  text-align: center;
+  background: #ffffff;
+}
+
+.bastu-intro .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #1f1f1f;
+}
+
+.bastu-intro .intro-text {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.bastu-intro .intro-description {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Sauna Sections */
+.sauna-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  min-height: 520px;
+}
+
+.sauna-section.reverse .sauna-image {
+  order: 2;
+}
+
+.sauna-section.reverse .sauna-content {
+  order: 1;
+  background: #f9f7f4;
+}
+
+.sauna-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 520px;
+}
+
+.sauna-content {
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin: 0;
+  color: #1f1f1f;
+}
+
+.section-badge {
+  padding: 0.35rem 0.9rem;
+  background: #1f1f1f;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.section-body {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #4a4a4a;
+  margin: 1.5rem 0;
+}
+
+.section-meta {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #7c6a56;
+  margin-top: 1rem;
+}
+
+/* CTA Section */
+.bastu-cta {
+  padding: 6rem 10vw;
+  background: #f4f1ec;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #1f1f1f;
+}
+
+.cta-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.95rem 2.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  color: #1f1f1f;
+  background: transparent;
+  border-color: #1f1f1f;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #1f1f1f;
+  border-color: #1f1f1f;
+}
+
+.btn-secondary:hover {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .bastu-hero {
+    min-height: 50vh;
+    padding: 4rem 2rem;
+  }
+
+  .bastu-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .sauna-section {
+    grid-template-columns: 1fr;
+  }
+
+  .sauna-section.reverse .sauna-image,
+  .sauna-section.reverse .sauna-content {
+    order: initial;
+  }
+
+  .bastu-intro {
+    padding: 4rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bastu-page {
+    padding-top: 70px;
+  }
+
+  .bastu-hero {
+    min-height: 40vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .bastu-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .bastu-hero .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .sauna-content {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .section-heading h3 {
+    font-size: 2rem;
+  }
+
+  .bastu-intro .section-title {
+    font-size: 2.2rem;
+  }
+
+  .bastu-cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 2.2rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+

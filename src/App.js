@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import WellnessExperience from './pages/WellnessExperience';
+import Bastu from './pages/Bastu';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/wellness-experience" element={<WellnessExperience />} />
+          <Route path="/bastu" element={<Bastu />} />
         </Routes>
         <Footer />
       </div>

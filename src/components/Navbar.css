@@ -86,14 +86,25 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 0.5rem);
   left: 0;
   background: white;
   min-width: 200px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
-  margin-top: 0.5rem;
   z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+/* Create an invisible bridge to prevent gap issues */
+.navbar-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
 }
 
 .dropdown-item {
