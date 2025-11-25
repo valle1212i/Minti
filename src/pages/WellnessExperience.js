@@ -5,122 +5,122 @@ import './WellnessExperience.css';
 const bathExperiences = [
   {
     title: 'Daiyokujo',
-    subtitle: '大浴場 · The Grand Bath',
+    subtitle: '大浴場 · Stora badet',
     description:
-      'The first space you enter is the heart of the house: a vast mirror of warm water framed by brutalist lines and soft light. Float beneath the skylight, watch reflections move across concrete walls, and let the stillness prepare you for everything that follows.',
-    temperature: '35°C · Tranquil conversation zone',
-    image: '/twowomenspa.png',
+      'Det första utrymmet du möter är husets hjärta: en vid spegel av varmt vatten inramad av brutalistiska linjer och mjukt ljus. Flyt under takfönstret, se reflektioner röra sig över betongväggar och låt stillheten förbereda dig för allt som följer.',
+    temperature: '35°C · Lugn samtalsszon',
+    image: '/poolnumebr1.png',
   },
   {
     title: 'Rotenburo',
-    subtitle: '露天風呂 · Outdoor Springs',
+    subtitle: '露天風呂 · Utomhuskällor',
     description:
-      'Step outside, close your eyes, and listen to the pine trees. Our outdoor onsen pools keep a gentle 39°C all year round so you can feel winter air meeting mineral warmth. Silent half-hours each morning and afternoon invite mindful reflection.',
-    temperature: '39°C · Quiet half-hours twice daily',
-    image: '/spapictureofapart.png',
+      'Gå ut, blunda och lyssna på tallarna. Våra utomhus onsen-bassänger håller en mild 39°C året om så att du kan känna vinterluften möta mineralvärmen. Tysta halvtimmar varje morgon och eftermiddag inbjuder till medveten reflektion.',
+    temperature: '39°C · Tysta halvtimmar två gånger dagligen',
+    image: '/onespapool.png',
   },
   {
     title: 'Ashiyu',
-    subtitle: '足湯 · Foot Bath Ritual',
+    subtitle: '足湯 · Fotbadet',
     description:
-      'Begin every visit by warming the body from the ground up. Sit, breathe, and let gratitude move through your feet and legs. The gradual heat calms the nervous system and prepares muscles for deeper immersion.',
-    temperature: '39°C · Gentle entry ritual',
+      'Börja varje besök genom att värma kroppen från grunden. Sitt, andas och låt tacksamheten röra sig genom dina fötter och ben. Den gradvisa värmen lugnar nervsystemet och förbereder musklerna för djupare immersion.',
+    temperature: '39°C · Mjuk ingångsritual',
     image: '/dasspaspic.png',
   },
   {
     title: 'Tansanburo',
-    subtitle: '炭酸風呂 · Carbonated Silence',
+    subtitle: '炭酸風呂 · Kolsyrebadet',
     description:
-      'Fine micro-bubbles embrace the skin and stimulate circulation in this fully silent zone. Guests enter with hushed movements, letting the effervescent water create a meditative auditory blanket.',
-    temperature: '39°C · Silent zone',
-    badge: 'Quiet Zone',
+      'Fina mikrobubblor omsluter huden och stimulerar blodcirkulationen i denna helt tysta zon. Gäster går in med dämpade rörelser och låter det mousserande vattnet skapa en meditativ auditiv filt.',
+    temperature: '39°C · Tyst zon',
+    badge: 'Tyst zon',
     image: '/twowomenspa.png',
   },
   {
     title: 'Mizoburo',
-    subtitle: '水風呂 · Cold Immersion',
+    subtitle: '水風呂 · Kallbadet',
     description:
-      'A crystalline plunge held between 12–14°C resets the body after each heat experience. Transitioning between warmth and cold is part of our circulatory ritual and boosts mental clarity.',
-    temperature: '12–14°C · Invigorating contrast',
+      'Ett kristallklart dopp som hålls mellan 12–14°C återställer kroppen efter varje värmupplevelse. Övergången mellan värme och kyla är en del av vår cirkulationsritual och ökar mental klarhet.',
+    temperature: '12–14°C · Uppiggande kontrast',
     image: '/spapictureofapart.png',
   },
   {
     title: 'Dokutsuburo',
-    subtitle: '洞窟風呂 · Rock Chamber Bath',
+    subtitle: '洞窟風呂 · Bergrumsbadet',
     description:
-      'Carved directly into the bedrock, this cave bath glows with candlelight reflections. Moist air, mineral-rich water, and the surrounding stone create an intimate cocoon reserved for silent contemplation.',
-    temperature: '39°C · Silent zone',
-    badge: 'Quiet Zone',
+      'Uthugget direkt i berggrunden glöder detta grottbad med ljusreflektioner från ljus. Fuktig luft, mineralrikt vatten och det omgivande berget skapar en intim kokong reserverad för tyst kontemplation.',
+    temperature: '39°C · Tyst zon',
+    badge: 'Tyst zon',
     image: '/dasspaspic.png',
   },
   {
-    title: 'Outdoor Sauna & Cold Plunge',
-    subtitle: '露天風呂 · Fire Meets Ice',
+    title: 'Utomhusbastu & Kallbad',
+    subtitle: '露天風呂 · Eld möter is',
     description:
-      'Our timber sauna, inspired by Nara architecture from the 700s, opens toward the archipelago. Step directly into the 12°C plunge pool, feel the sea breeze, and repeat as your body finds its rhythm.',
-    temperature: 'Sauna 80–90°C · Plunge 12°C',
-    image: '/twowomenspa.png',
+      'Vår träbastu, inspirerad av Nara-arkitektur från 700-talet, öppnar sig mot skärgården. Steg direkt in i 12°C-kallbadet, känn havsvinden och upprepa när din kropp hittar sin rytm.',
+    temperature: 'Bastu 80–90°C · Kallbad 12°C',
+    image: '/bastu1.png',
   },
 ];
 
 const ritualSteps = [
   {
-    title: 'Arrive & Breathe',
-    detail: 'Collect your yukata, shower essentials, and pause to feel the shift from everyday life to ritual space.',
+    title: 'Anländ & Andas',
+    detail: 'Hämta din yukata, duschutrustning och pausa för att känna övergången från vardagslivet till ritualutrymmet.',
   },
   {
     title: 'Tvagningsritual',
-    detail: 'Sit on a low stool, fill the basin, and cleanse slowly from feet to heart. Rinse thoroughly so the baths remain pristine.',
+    detail: 'Sitt på en låg pall, fyll karet och rengör långsamt från fötterna till hjärtat. Skölj noggrant så att baden förblir oskadda.',
   },
   {
-    title: 'Immerse & Alternate',
-    detail: 'Move between warm springs, carbonated baths, saunas, and cold plunges. Listen to your body—there is no rush.',
+    title: 'Doppa & Växla',
+    detail: 'Rör dig mellan varma källor, kolsyrebad, bastur och kallbad. Lyssna på din kropp—det finns ingen brådska.',
   },
   {
-    title: 'Quiet Reflection',
-    detail: 'Use our tysta zoner to meditate, journal, or simply notice your breath. We ask everyone to keep devices away.',
+    title: 'Tyst Reflektion',
+    detail: 'Använd våra tysta zoner för att meditera, journalföra eller helt enkelt lägga märke till din andning. Vi ber alla att hålla enheter borta.',
   },
 ];
 
 const wellbeingHighlights = [
   {
-    title: 'Ultrafiltration',
-    text: 'A built-in virus barrier exceeds public health standards, preventing pathogens from passing into our pools.',
+    title: 'Ultrafiltrering',
+    text: 'En inbyggd virusbarriär överträffar folkhälsomyndighetens rekommendationer och förhindrar att patogener passerar in i våra bassänger.',
   },
   {
     title: 'Influensavirus Policy',
-    text: 'Mechanical filtration, monitored chemistry, and continuous circulation mean flu viruses cannot survive in the baths.',
+    text: 'Mekanisk filtrering, övervakad kemi och kontinuerlig cirkulation innebär att influensavirus inte kan överleva i baden.',
   },
   {
-    title: 'Onsen Etiquette',
-    text: 'Move mindfully, keep towels out of the water, and remember that you are always part of someone else’s experience.',
+    title: 'Onsenetikett',
+    text: 'Rör dig medvetet, håll handdukar utanför vattnet och kom ihåg att du alltid är en del av någon annans upplevelse.',
   },
   {
-    title: 'Hydration & Nutrition',
-    text: 'Complimentary infused water stations and seasonal teas support the warm environment—sip often between sessions.',
+    title: 'Hydrering & Näring',
+    text: 'Gratis vattenstationer med smaksättning och säsongsbetonade teer stödjer den varma miljön—drick ofta mellan sessioner.',
   },
 ];
 
 const faqs = [
   {
-    question: 'When is the wellness experience open?',
+    question: 'När är välmående-upplevelsen öppen?',
     answer:
-      'Our full bathhouse is open daily from early morning until late evening. Outdoor pools remain open year-round unless extreme weather requires a short closure for safety.',
+      'Vårt fullständiga badhus är öppet dagligen från tidig morgon till sen kväll. Utomhusbassänger förblir öppna året om om inte extremt väder kräver en kort stängning av säkerhetsskäl.',
   },
   {
-    question: 'Is there an age limit?',
+    question: 'Finns det en åldersgräns?',
     answer:
-      'Day access is available from 13 years when accompanied by an adult. Evening sessions maintain a 16+ calm policy to protect the serene atmosphere.',
+      'Daglig tillgång är tillgänglig från 13 år när de är åtföljda av en vuxen. Kvällssessioner upprätthåller en 16+ lugn policy för att skydda den lugna atmosfären.',
   },
   {
-    question: 'Do I need to book in advance?',
+    question: 'Behöver jag boka i förväg?',
     answer:
-      'Weekends and holidays fill quickly. Pre-book to guarantee entry, treatments, and dining. Midweek visits offer the quietest flow.',
+      'Helger och helgdagar fylls snabbt. Förboka för att garantera inträde, behandlingar och mat. Veckodagsbesök erbjuder den lugnaste flödet.',
   },
   {
-    question: 'What should I bring?',
+    question: 'Vad ska jag ta med?',
     answer:
-      'We provide yukata, slippers, towels, and organic bath products. You are welcome to bring personal swimwear, though it is optional in our bathing zones.',
+      'Vi tillhandahåller yukata, tofflor, handdukar och organiska badprodukter. Du är välkommen att ta med personlig badkläder, även om det är valfritt i våra badzoner.',
   },
 ];
 
@@ -129,35 +129,35 @@ const WellnessExperience = () => {
     <div className="wellness-page">
       <section
         className="wellness-hero"
-        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/spapictureofapart.png)` }}
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/pictureforbadandkallor.png)` }}
       >
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <p className="eyebrow">Våra bad & källor</p>
-          <h1>The Wellness Experience</h1>
+          <h1>Välmående-upplevelsen</h1>
           <p className="lead">
-            A sensory journey where elemental water rituals meet modern Scandinavian design.
-            Move through warm and cold, sound and silence, conversation and contemplation.
+            En sensorisk resa där elementära vattenritualer möter modern skandinavisk design.
+            Rör dig genom värme och kyla, ljud och tystnad, samtal och kontemplation.
           </p>
           <div className="hero-actions">
-            <Link to="/contact" className="btn btn-primary">Book Your Ritual</Link>
-            <Link to="/services" className="btn btn-secondary">View Treatments</Link>
+            <Link to="/contact" className="btn btn-primary">Boka din ritual</Link>
+            <Link to="/services" className="btn btn-secondary">Se behandlingar</Link>
           </div>
         </div>
       </section>
 
       <section className="wellness-intro">
         <div className="intro-text">
-          <h2>Designed for Stillness and Conversation</h2>
+          <h2>Designad för stillhet och samtal</h2>
           <p>
-            Inspired by the Japanese concept of yasuragi—the exhale you take when you sink into a perfect bath—
-            we have divided the house into distinct zones. Some welcome gentle conversation and laughter with
-            loved ones; others invite silence, introspection, and a meditative pace. Visit on weekday mornings
-            or evenings for the quietest atmosphere, or join our guided dojo sessions to deepen your focus.
+            Inspirerad av det japanska begreppet yasuragi—den utandning du gör när du sjunker ner i ett perfekt bad—
+            har vi delat in huset i distinkta zoner. Några välkomnar mjuka samtal och skratt med
+            nära och kära; andra inbjuder till tystnad, introspektion och en meditativ takt. Besök på vardagsmorgnar
+            eller kvällar för den lugnaste atmosfären, eller delta i våra guidade dojo-sessioner för att fördjupa din fokus.
           </p>
           <p>
-            Wear the yukata we provide or bring your own swim attire if you prefer. Drink water often, place your
-            phone on silent, and let our hosts guide you through every step of the ritual.
+            Bär yukatan vi tillhandahåller eller ta med dina egna badkläder om du föredrar det. Drick ofta vatten, sätt din
+            telefon på tyst läge och låt våra värdar guida dig genom varje steg av ritualen.
           </p>
         </div>
       </section>
@@ -184,10 +184,10 @@ const WellnessExperience = () => {
 
       <section className="ritual-section">
         <div className="ritual-header">
-          <h2>The Tvagningsritual · 清め</h2>
+          <h2>Tvagningsritualen · 清め</h2>
           <p>
-            In Japan, cleansing happens before bathing. Take your time—this sequence has been refined over centuries
-            to calm the mind and honor the water we share.
+            I Japan sker rengöring innan badning. Ta din tid—denna sekvens har förfinats över århundraden
+            för att lugna sinnet och hedra vattnet vi delar.
           </p>
         </div>
         <div className="ritual-grid">
@@ -209,12 +209,48 @@ const WellnessExperience = () => {
         ))}
       </section>
 
+      <section id="bastu" className="experience-section">
+        <div className="experience-image">
+          <img src="/bastu1.png" alt="Bastu" />
+        </div>
+        <div className="experience-content">
+          <p className="section-label">Bastu</p>
+          <div className="section-heading">
+            <h3>Våra bastur</h3>
+          </div>
+          <p className="section-body">
+            Upplev värmen och återhämtningen i våra traditionella bastur. Vi erbjuder både inomhus- och utomhusbastur
+            där du kan växla mellan intensiv värme och uppfriskande kyla. Våra bastur är designade för både social
+            gemenskap och individuell avkoppling.
+          </p>
+          <p className="section-meta">80–90°C · Traditionell och infraröd</p>
+        </div>
+      </section>
+
+      <section id="zen-tradgard" className="experience-section reverse">
+        <div className="experience-image">
+          <img src="/zengarden.png" alt="Zen trädgård" />
+        </div>
+        <div className="experience-content">
+          <p className="section-label">Zen trädgård</p>
+          <div className="section-heading">
+            <h3>Japanska trädgården</h3>
+          </div>
+          <p className="section-body">
+            Vår zen-trädgård är en fridfull oas inspirerad av traditionell japansk trädgårdskonst. Här kan du
+            meditera, reflektera eller helt enkelt njuta av stillheten. Trädgården är designad för att skapa harmoni
+            mellan natur och människa, och erbjuder en plats för inre lugn och kontemplation.
+          </p>
+          <p className="section-meta">Året om · Tyst zon</p>
+        </div>
+      </section>
+
       <section className="faq-section">
         <div className="faq-intro">
-          <h2>Frequently Asked Questions</h2>
+          <h2>Vanliga frågor</h2>
           <p>
-            If you cannot find the answer you need, feel free to reach out to our hosts by phone, email, or chat.
-            We respond daily and are happy to help you plan your visit.
+            Om du inte kan hitta svaret du behöver, tveka inte att kontakta våra värdar via telefon, e-post eller chatt.
+            Vi svarar dagligen och är glada att hjälpa dig planera ditt besök.
           </p>
         </div>
         <div className="faq-grid">
@@ -229,15 +265,15 @@ const WellnessExperience = () => {
 
       <section className="cta-section">
         <div className="cta-content">
-          <p className="eyebrow">Plan Your Visit</p>
-          <h2>Overnight stays, day spa rituals, and bespoke group itineraries.</h2>
+          <p className="eyebrow">Planera ditt besök</p>
+          <h2>Övernattningar, dagspa-ritualer och skräddarsydda gruppresor.</h2>
           <p>
-            Choose between restorative day sessions, candlelit evening visits, or multi-day escapes with curated
-            dining. Our concierge team can also tailor programs for companies and private gatherings.
+            Välj mellan återhämtande dagsessioner, ljusstake kvällsbesök eller flerdagars flykter med kuraterad
+            mat. Vårt concierge-team kan också skräddarsy program för företag och privata sammankomster.
           </p>
           <div className="cta-actions">
-            <Link to="/contact" className="btn btn-primary">Book Now</Link>
-            <Link to="/about" className="btn btn-secondary">Discover Our Story</Link>
+            <Link to="/contact" className="btn btn-primary">Boka nu</Link>
+            <Link to="/about" className="btn btn-secondary">Upptäck vår berättelse</Link>
           </div>
         </div>
       </section>

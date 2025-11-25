@@ -5,6 +5,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isWellnessDropdownOpen, setIsWellnessDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -53,13 +54,36 @@ const Navbar = () => {
           >
             Services
           </Link>
-          <Link 
-            to="/wellness-experience" 
-            className={`navbar-link ${location.pathname === '/wellness-experience' ? 'active' : ''}`}
-            onClick={closeMobileMenu}
+          <div 
+            className="navbar-dropdown"
+            onMouseEnter={() => setIsWellnessDropdownOpen(true)}
+            onMouseLeave={() => setIsWellnessDropdownOpen(false)}
           >
-            The Wellness Experience
-          </Link>
+            <Link 
+              to="/wellness-experience" 
+              className={`navbar-link ${location.pathname === '/wellness-experience' ? 'active' : ''}`}
+              onClick={(e) => {
+                if (window.innerWidth <= 968) {
+                  e.preventDefault();
+                  setIsWellnessDropdownOpen(!isWellnessDropdownOpen);
+                } else {
+                  closeMobileMenu();
+                }
+              }}
+            >
+              Välmående-upplevelsen
+            </Link>
+            {isWellnessDropdownOpen && (
+              <div className="dropdown-menu">
+                <Link to="/wellness-experience#bastu" className="dropdown-item" onClick={closeMobileMenu}>
+                  Bastu
+                </Link>
+                <Link to="/wellness-experience#zen-tradgard" className="dropdown-item" onClick={closeMobileMenu}>
+                  Zen trädgård
+                </Link>
+              </div>
+            )}
+          </div>
           <Link 
             to="/gallery" 
             className={`navbar-link ${location.pathname === '/gallery' ? 'active' : ''}`}
