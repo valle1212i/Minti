@@ -1,0 +1,439 @@
+.home {
+  padding-top: 0;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1f1f1f;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: absolute;
+  top: calc(40px + 50vh);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 1rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: white;
+  color: #2c2c2c;
+}
+
+.btn-primary:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #2c2c2c;
+}
+
+.btn-link {
+  color: #5a7c65;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.btn-link:hover {
+  color: #4a6b55;
+  transform: translateX(5px);
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Intro Section */
+.intro-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #2c2c2c;
+  line-height: 1.3;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 3rem;
+}
+
+.section-subtitle.center {
+  text-align: center;
+}
+
+.section-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Wellness Section */
+.wellness-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.wellness-image,
+.dining-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.wellness-section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 600px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  background: linear-gradient(135deg, #e8f0eb 0%, #d4e4d9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a7c65;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.image-placeholder.large {
+  min-height: 700px;
+}
+
+.wellness-content,
+.dining-content {
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  background: #fafafa;
+}
+
+.wellness-text,
+.dining-text {
+  max-width: 600px;
+}
+
+/* Visit Section */
+.visit-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.visit-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.visit-card {
+  background: white;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.card-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-image .image-placeholder {
+  min-height: 350px;
+  background: linear-gradient(135deg, #e8f0eb 0%, #d4e4d9 100%);
+}
+
+.card-content {
+  padding: 2.5rem;
+}
+
+.card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.card-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Dining Section */
+.dining-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.dining-content {
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  background: white;
+  order: 1;
+}
+
+.dining-image {
+  order: 2;
+}
+
+/* Accommodation Section */
+.accommodation-section {
+  padding: 6rem 0;
+  background: #fafafa;
+}
+
+.accommodation-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.accommodation-image {
+  width: 100%;
+}
+
+.accommodation-text {
+  padding: 2rem 0;
+}
+
+.accommodation-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .wellness-section,
+  .dining-section {
+    grid-template-columns: 1fr;
+  }
+
+  .dining-content {
+    order: 2;
+  }
+
+  .dining-image {
+    order: 1;
+  }
+
+  .accommodation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding-top: 70px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .intro-section,
+  .visit-section {
+    padding: 4rem 0;
+  }
+
+  .wellness-content,
+  .dining-content {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .accommodation-buttons {
+    flex-direction: column;
+  }
+
+  .accommodation-buttons .btn {
+    width: 100%;
+  }
+}
+

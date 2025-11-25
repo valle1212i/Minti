@@ -1,0 +1,291 @@
+.about {
+  padding-top: 80px;
+}
+
+.about-hero {
+  height: 50vh;
+  min-height: 400px;
+  background: linear-gradient(135deg, #5a7c65 0%, #7a9c85 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920') center/cover;
+  opacity: 0.3;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.page-subtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+.philosophy-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.philosophy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.philosophy-image {
+  width: 100%;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, #e8f0eb 0%, #d4e4d9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a7c65;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.image-placeholder.large {
+  min-height: 600px;
+}
+
+.philosophy-text {
+  padding: 2rem 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #2c2c2c;
+  line-height: 1.3;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 3rem;
+}
+
+.section-subtitle.center {
+  text-align: center;
+}
+
+.experience-section {
+  padding: 6rem 0;
+  background: #fafafa;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.experience-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.experience-item p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.facilities-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.facilities-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.facilities-text {
+  padding: 2rem 0;
+}
+
+.facilities-image {
+  width: 100%;
+}
+
+.team-section {
+  padding: 6rem 0;
+  background: #fafafa;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.team-member {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.member-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.member-image .image-placeholder {
+  min-height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f0eb 0%, #d4e4d9 100%);
+  font-size: 0.9rem;
+}
+
+.team-member h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #2c2c2c;
+}
+
+.member-role {
+  font-size: 0.95rem;
+  color: #5a7c65;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.member-bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+@media (max-width: 968px) {
+  .philosophy-content,
+  .facilities-content {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding-top: 70px;
+  }
+
+  .about-hero {
+    min-height: 300px;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .philosophy-section,
+  .experience-section,
+  .facilities-section,
+  .team-section {
+    padding: 4rem 0;
+  }
+
+  .experience-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
