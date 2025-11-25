@@ -127,7 +127,10 @@ const faqs = [
 const WellnessExperience = () => {
   return (
     <div className="wellness-page">
-      <section className="wellness-hero">
+      <section
+        className="wellness-hero"
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/spapictureofapart.png)` }}
+      >
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <p className="eyebrow">Våra bad & källor</p>

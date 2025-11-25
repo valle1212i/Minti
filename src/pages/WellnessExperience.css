@@ -7,9 +7,6 @@
   position: relative;
   min-height: 90vh;
   padding: 6rem 3rem;
-  background-image: url('/spapictureofapart.png');
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: flex-start;
