@@ -54,6 +54,13 @@ const Navbar = () => {
             Services
           </Link>
           <Link 
+            to="/wellness-experience" 
+            className={`navbar-link ${location.pathname === '/wellness-experience' ? 'active' : ''}`}
+            onClick={closeMobileMenu}
+          >
+            The Wellness Experience
+          </Link>
+          <Link 
             to="/gallery" 
             className={`navbar-link ${location.pathname === '/gallery' ? 'active' : ''}`}
             onClick={closeMobileMenu}

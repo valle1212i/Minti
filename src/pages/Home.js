@@ -71,7 +71,7 @@ const Home = () => {
               therapeutic waters or awaken your life force with a refreshing cold plunge. 
               Our saunas and outdoor baths awaken your senses, and you decide what suits you.
             </p>
-            <Link to="/services" className="btn-link">Learn More →</Link>
+            <Link to="/wellness-experience" className="btn-link">Learn More →</Link>
           </div>
         </div>
       </section>
