@@ -26,19 +26,19 @@
 }
 
 .navbar-logo {
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #2c2c2c;
-  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
 .navbar-logo:hover {
-  color: #5a7c65;
+  opacity: 0.85;
 }
 
-.logo-text {
-  font-family: 'Playfair Display', serif;
+.navbar-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 .navbar-menu {

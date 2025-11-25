@@ -24,7 +24,11 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <span className="logo-text">Minti</span>
+          <img 
+            src="/mintilogose.png" 
+            alt="Minti logo" 
+            className="navbar-logo-img" 
+          />
         </Link>
         
         <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
