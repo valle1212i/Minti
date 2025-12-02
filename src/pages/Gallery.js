@@ -5,18 +5,18 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const galleryImages = [
-    { id: 1, category: 'facilities', title: 'Wellness Center' },
-    { id: 2, category: 'facilities', title: 'Spa Treatment Room' },
-    { id: 3, category: 'accommodation', title: 'Luxury Suite' },
-    { id: 4, category: 'accommodation', title: 'Standard Room' },
-    { id: 5, category: 'dining', title: 'Restaurant' },
-    { id: 6, category: 'dining', title: 'Dining Area' },
-    { id: 7, category: 'facilities', title: 'Sauna' },
-    { id: 8, category: 'facilities', title: 'Outdoor Pool' },
-    { id: 9, category: 'activities', title: 'Yoga Studio' },
-    { id: 10, category: 'activities', title: 'Meditation Space' },
-    { id: 11, category: 'facilities', title: 'Relaxation Area' },
-    { id: 12, category: 'accommodation', title: 'Suite Bathroom' },
+    { id: 1, category: 'facilities', title: 'Wellnesscenter' },
+    { id: 2, category: 'facilities', title: 'Spa-behandlingsrum' },
+    { id: 3, category: 'accommodation', title: 'Lyxsvit' },
+    { id: 4, category: 'accommodation', title: 'Standardrum' },
+    { id: 5, category: 'dining', title: 'Restaurang' },
+    { id: 6, category: 'dining', title: 'Matsal' },
+    { id: 7, category: 'facilities', title: 'Bastu' },
+    { id: 8, category: 'facilities', title: 'Utomhuspool' },
+    { id: 9, category: 'activities', title: 'Yogastudio' },
+    { id: 10, category: 'activities', title: 'Meditationsutrymme' },
+    { id: 11, category: 'facilities', title: 'Avslappningsområde' },
+    { id: 12, category: 'accommodation', title: 'Svitsbadrum' },
   ];
 
   const categories = ['all', 'facilities', 'accommodation', 'dining', 'activities'];
@@ -39,9 +39,9 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="gallery-hero">
         <div className="gallery-hero-content">
-          <h1 className="page-title">Gallery</h1>
+          <h1 className="page-title">Galleri</h1>
           <p className="page-subtitle">
-            Explore our serene spaces and wellness facilities
+            Utforska våra fridfulla utrymmen och wellness-faciliteter
           </p>
         </div>
       </section>
@@ -56,7 +56,11 @@ const Gallery = () => {
                 className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
                 onClick={() => setActiveCategory(category)}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === 'all' ? 'Alla' : 
+                 category === 'facilities' ? 'Faciliteter' :
+                 category === 'accommodation' ? 'Boende' :
+                 category === 'dining' ? 'Mat & Dryck' :
+                 category === 'activities' ? 'Aktiviteter' : category}
               </button>
             ))}
           </div>
@@ -108,11 +112,11 @@ const Gallery = () => {
       <section className="gallery-cta">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-title">Experience It Yourself</h2>
+            <h2 className="cta-title">Upplev det själv</h2>
             <p className="cta-text">
-              Ready to visit our wellness center? Book your stay or day visit today.
+              Redo att besöka vårt wellnesscenter? Boka din vistelse eller dagbesök idag.
             </p>
-            <a href="/contact" className="btn btn-primary">Book Now</a>
+            <a href="/contact" className="btn btn-primary">Boka nu</a>
           </div>
         </div>
       </section>

@@ -1,33 +1,56 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const handleCanPlay = () => {
+        video.classList.add('playing');
+      };
+      
+      video.addEventListener('canplay', handleCanPlay);
+      
+      // If video is already loaded
+      if (video.readyState >= 3) {
+        video.classList.add('playing');
+      }
+
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+      };
+    }
+  }, []);
+
   return (
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
           <video
+            ref={videoRef}
             className="hero-video"
             autoPlay
             loop
             muted
             playsInline
-            poster="/twowomenspa.png"
+            preload="auto"
           >
             <source src="/spa.mp4" type="video/mp4" />
           </video>
           <div className="hero-overlay"></div>
           <div className="hero-content">
-            <h1 className="hero-title">Wellness on Your Terms</h1>
+            <p className="hero-subheading">Välkommen till Minti</p>
+            <h1 className="hero-title">Wellness på ditt vis</h1>
             <p className="hero-subtitle">
-              Discover tranquility and renewal in our serene sanctuary. 
-              A place where modern wellness meets timeless serenity.
+              Upptäck lugn och förnyelse i vår fridfulla oas. 
+              En plats där modern wellness möter tidlös frid.
             </p>
             <div className="hero-buttons">
-              <Link to="/contact" className="btn btn-primary">Book Your Stay</Link>
-              <Link to="/services" className="btn btn-secondary">Explore Services</Link>
+              <Link to="/contact" className="btn btn-primary">Boka ditt besök</Link>
             </div>
           </div>
         </div>
@@ -37,17 +60,17 @@ const Home = () => {
       <section className="intro-section">
         <div className="container">
           <div className="intro-content">
-            <h2 className="section-title">Welcome to Minti</h2>
+            <h2 className="section-title">Om Minti</h2>
             <p className="section-text">
-              Stripped-down drama and elegant environments, where you are at the center. 
-              Discover our unique wellness sanctuary – Minti is an oasis nestled in serene 
-              natural surroundings where traditional wellness practices meet modern design. 
-              Here awaits wellness on your terms, from warm therapeutic treatments to 
-              refreshing cold plunges, or simply a truly good moment with captivating views.
+              Avskalad dramatik och eleganta miljöer, där du är i centrum. 
+              Upptäck vår unika wellness-oas – Minti är en oas inbäddad i fridfulla 
+              naturliga omgivningar där traditionella wellness-praktiker möter modern design. 
+              Här väntar wellness på ditt vis, från varma terapeutiska behandlingar till 
+              uppfriskande kalla dopp, eller helt enkelt ett riktigt gott ögonblick med fängslande utsikter.
             </p>
             <p className="section-text">
-              Whether you want a moment of stillness or to rejoice with loved ones, 
-              there are all possibilities to shape your visit as you wish. Welcome!
+              Oavsett om du vill ha ett ögonblick av stillhet eller glädjas med nära och kära, 
+              finns det alla möjligheter att forma ditt besök som du önskar. Välkommen!
             </p>
           </div>
         </div>
@@ -58,20 +81,21 @@ const Home = () => {
         <div className="wellness-image">
           <img 
             src="/twowomenspa.png" 
-            alt="Wellness Experience" 
+            alt="Välmående-upplevelse" 
             className="wellness-section-image"
           />
         </div>
         <div className="wellness-content">
           <div className="wellness-text">
-            <h2 className="section-title">The Wellness Experience</h2>
+            <h2 className="section-title">Välmående-upplevelsen</h2>
+            <p className="section-subheading">En plats för alla sinnen</p>
             <p className="section-description">
-              A place for all senses. Begin with our cleansing ritual, let go of all 
-              the must-dos of everyday life, and let yourself be enveloped by warm 
-              therapeutic waters or awaken your life force with a refreshing cold plunge. 
-              Our saunas and outdoor baths awaken your senses, and you decide what suits you.
+              En plats för alla sinnen. Börja med vår rengöringsritual, släpp alla 
+              måsten från vardagslivet och låt dig omslutas av varma terapeutiska vatten 
+              eller väck din livskraft med ett uppfriskande kallt dopp. 
+              Våra bastur och utomhusbad väcker dina sinnen, och du bestämmer vad som passar dig.
             </p>
-            <Link to="/wellness-experience" className="btn-link">Learn More →</Link>
+            <Link to="/wellness-experience" className="btn-link">Läs mer →</Link>
           </div>
         </div>
       </section>
@@ -79,45 +103,45 @@ const Home = () => {
       {/* Visit Options Section */}
       <section className="visit-section">
         <div className="container">
-          <h2 className="section-title center">Visit Our Wellness Center</h2>
+          <h2 className="section-title center">Besök vårt wellnesscenter</h2>
           <p className="section-subtitle center">
-            Overnight stay or day visit?
+            Övernattning eller besök över dagen?
           </p>
           <div className="visit-cards">
             <div className="visit-card">
               <div className="card-image">
                 <img 
                   src="/spapictureofapart.png" 
-                  alt="Wellness with Overnight Stay" 
+                  alt="Wellness med övernattning" 
                   className="card-image-img"
                 />
               </div>
               <div className="card-content">
-                <h3>Wellness with Overnight Stay</h3>
+                <h3>Wellness med övernattning</h3>
                 <p>
-                  Experience relaxation in our wellness center, participate in 
-                  beneficial activities, and enjoy exquisite meals inspired by 
-                  holistic nutrition in one of our restaurants. Stay overnight or visit for the day.
+                  Upplev avkoppling i vårt wellnesscenter, delta i välgörande aktiviteter 
+                  och njut av utsökta måltider inspirerade av holistisk näring i en av våra restauranger. 
+                  Stanna över natten eller besök för dagen.
                 </p>
-                <Link to="/contact" className="btn btn-primary">Book Stay</Link>
+                <Link to="/contact" className="btn btn-primary">Boka vistelse</Link>
               </div>
             </div>
             <div className="visit-card">
               <div className="card-image">
                 <img 
                   src="/dasspaspic.png" 
-                  alt="Day Spa / Evening Spa" 
+                  alt="Dagspa / Kvällsspa" 
                   className="card-image-img"
                 />
               </div>
               <div className="card-content">
-                <h3>Day Spa / Evening Spa</h3>
+                <h3>Dagspa / Kvällsspa</h3>
                 <p>
-                  Perfect for a day of rejuvenation. Enjoy our full range of 
-                  wellness services, treatments, and facilities during the day 
-                  or evening. A complete wellness experience in a single visit.
+                  Perfekt för en dag av förnyelse. Njut av vårt fulla utbud av 
+                  wellness-tjänster, behandlingar och faciliteter under dagen 
+                  eller kvällen. En komplett wellness-upplevelse i ett enda besök.
                 </p>
-                <Link to="/contact" className="btn btn-primary">Book Day Spa</Link>
+                <Link to="/contact" className="btn btn-primary">Boka dagspa</Link>
               </div>
             </div>
           </div>
@@ -128,20 +152,20 @@ const Home = () => {
       <section className="dining-section">
         <div className="dining-content">
           <div className="dining-text">
-            <h2 className="section-title">Dining & Nourishment</h2>
+            <h2 className="section-title">Mat & Näring</h2>
+            <p className="section-subheading">Smakresa för sinnena</p>
             <p className="section-description">
-              A taste journey for the senses. Lunch in wellness spirit, unique 
-              dinner experiences, and well-crafted beverages – Minti is so much 
-              more than just a wellness experience. Get acquainted with influences 
-              from modern, holistic cuisine in our restaurant, at the bar, or on 
-              the terrace with dreamy views. Welcome to a taste journey for all senses.
+              En smakresa för sinnena. Lunch i wellnessanda, unika middagsupplevelser 
+              och välgjorda drycker – Minti är så mycket mer än bara en wellness-upplevelse. 
+              Bekanta dig med influenser från modern, holistisk matlagning i vår restaurang, 
+              vid baren eller på terrassen med drömlika utsikter. Välkommen till en smakresa för alla sinnen.
             </p>
-            <Link to="/services" className="btn-link">Our Restaurant →</Link>
+            <Link to="/services" className="btn-link">Vår restaurang →</Link>
           </div>
         </div>
         <div className="dining-image">
           <div className="image-placeholder">
-            <span>Dining Experience Image</span>
+            <span>Matupplevelse</span>
           </div>
         </div>
       </section>
@@ -152,23 +176,24 @@ const Home = () => {
           <div className="accommodation-content">
             <div className="accommodation-image">
               <div className="image-placeholder large">
-                <span>Accommodation Image</span>
+                <span>Boende</span>
               </div>
             </div>
             <div className="accommodation-text">
-              <h2 className="section-title">Accommodation</h2>
+              <h2 className="section-title">Boende</h2>
+              <p className="section-subheading">Minimalistisk design med fridfulla utsikter</p>
               <p className="section-description">
-                Minimalist design with serene views. We have thoughtfully designed 
-                rooms, all in a style with clear inspiration from wellness and 
-                tranquility. The simple, yet well-thought-out aesthetic is created 
-                to invite inner calm. The focus is intended to lie primarily on 
-                your inner experience itself and not the decoration. All rooms have 
-                views over the surrounding natural landscape. Breakfast buffet is 
-                always included when you book overnight packages with us.
+                Minimalistisk design med fridfulla utsikter. Vi har genomtänkt designade 
+                rum, alla i en stil med tydlig inspiration från wellness och 
+                frid. Den enkla, men välgenomtänkta estetiken är skapad 
+                för att inbjuda till inre lugn. Fokuset är avsett att ligga främst på 
+                din inre upplevelse i sig och inte på dekorationen. Alla rum har 
+                utsikt över det omgivande naturlandskapet. Frukostbuffé är 
+                alltid inkluderad när du bokar övernattningspaket hos oss.
               </p>
               <div className="accommodation-buttons">
-                <Link to="/contact" className="btn btn-primary">Book Accommodation</Link>
-                <Link to="/gallery" className="btn btn-secondary">View Rooms</Link>
+                <Link to="/contact" className="btn btn-primary">Boka boende</Link>
+                <Link to="/gallery" className="btn btn-outline">Se rum</Link>
               </div>
             </div>
           </div>

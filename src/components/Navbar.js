@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isWellnessDropdownOpen, setIsWellnessDropdownOpen] = useState(false);
   const location = useLocation();
+  const dropdownTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +15,30 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
   }, []);
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIsWellnessDropdownOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsWellnessDropdownOpen(false);
+    }, 150); // Small delay to allow moving to dropdown menu
   };
 
   return (
@@ -38,26 +58,26 @@ const Navbar = () => {
             className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Home
+            Hem
           </Link>
           <Link 
             to="/about" 
             className={`navbar-link ${location.pathname === '/about' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            About
+            Om oss
           </Link>
           <Link 
             to="/services" 
             className={`navbar-link ${location.pathname === '/services' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Services
+            Tjänster
           </Link>
           <div 
             className="navbar-dropdown"
-            onMouseEnter={() => setIsWellnessDropdownOpen(true)}
-            onMouseLeave={() => setIsWellnessDropdownOpen(false)}
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
           >
             <Link 
               to="/wellness-experience" 
@@ -76,8 +96,8 @@ const Navbar = () => {
             {isWellnessDropdownOpen && (
               <div 
                 className="dropdown-menu"
-                onMouseEnter={() => setIsWellnessDropdownOpen(true)}
-                onMouseLeave={() => setIsWellnessDropdownOpen(false)}
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
               >
                 <Link to="/bastu" className="dropdown-item" onClick={closeMobileMenu}>
                   Bastu
@@ -93,17 +113,17 @@ const Navbar = () => {
             className={`navbar-link ${location.pathname === '/gallery' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Gallery
+            Galleri
           </Link>
           <Link 
             to="/contact" 
             className={`navbar-link ${location.pathname === '/contact' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
-            Contact
+            Kontakt
           </Link>
           <Link to="/contact" className="navbar-cta" onClick={closeMobileMenu}>
-            Book Now
+            Boka nu
           </Link>
         </div>
 

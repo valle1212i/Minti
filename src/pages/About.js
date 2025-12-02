@@ -7,9 +7,9 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-content">
-          <h1 className="page-title">About Minti</h1>
+          <h1 className="page-title">Om Minti</h1>
           <p className="page-subtitle">
-            A sanctuary for wellness, tranquility, and renewal
+            En fristad för wellness, frid och förnyelse
           </p>
         </div>
       </section>
@@ -20,25 +20,26 @@ const About = () => {
           <div className="philosophy-content">
             <div className="philosophy-image">
               <div className="image-placeholder">
-                <span>Our Philosophy</span>
+                <span>Vår filosofi</span>
               </div>
             </div>
             <div className="philosophy-text">
-              <h2 className="section-title">Our Philosophy</h2>
+              <h2 className="section-title">Vår filosofi</h2>
+              <p className="section-subheading">En fristad för wellness, frid och förnyelse</p>
               <p className="section-text">
-                For nearly three decades, Minti has been a place where people come 
-                to disconnect from everyday life and gather new energy. Stillness, 
-                beauty, and harmony were the guiding principles at the start. Today, 
-                Minti offers a beautiful contrast between the hectic everyday life 
-                and a moment of peace in a warm sanctuary. The soul's exhalation.
+                I nästan tre decennier har Minti varit en plats där människor kommer 
+                för att koppla bort från vardagslivet och samla ny energi. Stillhet, 
+                skönhet och harmoni var de ledande principerna från början. Idag 
+                erbjuder Minti en vacker kontrast mellan det hektiska vardagslivet 
+                och ett ögonblick av frid i en varm fristad. Själens utandning.
               </p>
               <p className="section-text">
-                It is still the wellness experience that forms the heart of Minti. 
-                Just as before, the wellness visit begins with an introduction to 
-                our cleansing ritual, which everyone is encouraged to start with. 
-                After the thorough cleansing, there are warm therapeutic waters 
-                directly in the treatment room. Here you will also find a relaxation 
-                sauna with aromatic scents.
+                Det är fortfarande wellness-upplevelsen som bildar hjärtat av Minti. 
+                Precis som tidigare börjar wellness-besöket med en introduktion till 
+                vår rengöringsritual, som alla uppmuntras att börja med. 
+                Efter den noggranna rengöringen finns det varma terapeutiska vatten 
+                direkt i behandlingsrummet. Här hittar du också en avslappningsbastu 
+                med aromatiska dofter.
               </p>
             </div>
           </div>
@@ -53,33 +54,33 @@ const About = () => {
               <div className="experience-icon">
                 <span>🌿</span>
               </div>
-              <h3>Natural Environment</h3>
+              <h3>Naturlig miljö</h3>
               <p>
-                Surrounded by serene natural landscapes, our facility is designed 
-                to harmonize with the surrounding environment, creating a peaceful 
-                retreat from the outside world.
+                Omgiven av fridfulla naturlandskap är vår anläggning designad 
+                för att harmoniera med den omgivande miljön, vilket skapar en fridfull 
+                tillflyktsort från omvärlden.
               </p>
             </div>
             <div className="experience-item">
               <div className="experience-icon">
                 <span>🧘</span>
               </div>
-              <h3>Holistic Approach</h3>
+              <h3>Holistiskt förhållningssätt</h3>
               <p>
-                We believe in treating the whole person—mind, body, and spirit. 
-                Our programs integrate various wellness practices to create a 
-                comprehensive healing experience.
+                Vi tror på att behandla hela människan – sinne, kropp och själ. 
+                Våra program integrerar olika wellness-praktiker för att skapa en 
+                omfattande helande upplevelse.
               </p>
             </div>
             <div className="experience-item">
               <div className="experience-icon">
                 <span>✨</span>
               </div>
-              <h3>Personalized Care</h3>
+              <h3>Personlig omsorg</h3>
               <p>
-                Every guest receives personalized attention. Our experienced team 
-                works with you to create a wellness journey tailored to your 
-                individual needs and goals.
+                Varje gäst får personlig uppmärksamhet. Vårt erfarna team 
+                arbetar med dig för att skapa en wellnessresa skräddarsydd efter dina 
+                individuella behov och mål.
               </p>
             </div>
           </div>
@@ -89,10 +90,8 @@ const About = () => {
       {/* Facilities Section */}
       <section className="facilities-section">
         <div className="container">
-          <h2 className="section-title center">Our Facilities</h2>
-          <p className="section-subtitle center">
-            A space designed for tranquility and renewal
-          </p>
+          <h2 className="section-title center">Våra faciliteter</h2>
+          <p className="section-subheading center">Ett utrymme designat för frid och förnyelse</p>
           <div className="facilities-content">
             <div className="facilities-text">
               <p className="section-text">
@@ -114,7 +113,7 @@ const About = () => {
             </div>
             <div className="facilities-image">
               <div className="image-placeholder large">
-                <span>Facilities Image</span>
+                <span>Faciliteter</span>
               </div>
             </div>
           </div>
@@ -124,10 +123,8 @@ const About = () => {
       {/* Team Section */}
       <section className="team-section">
         <div className="container">
-          <h2 className="section-title center">Our Team</h2>
-          <p className="section-subtitle center">
-            Experienced professionals dedicated to your wellness
-          </p>
+          <h2 className="section-title center">Vårt team</h2>
+          <p className="section-subheading center">Erfarna professionella dedikerade till din wellness</p>
           <div className="team-grid">
             <div className="team-member">
               <div className="member-image">
@@ -136,36 +133,36 @@ const About = () => {
                 </div>
               </div>
               <h3>Sarah Johnson</h3>
-              <p className="member-role">Wellness Director</p>
+              <p className="member-role">Wellnessdirektör</p>
               <p className="member-bio">
-                With over 15 years of experience in holistic wellness, Sarah leads 
-                our team with passion and expertise.
+                Med över 15 års erfarenhet inom holistisk wellness leder Sarah 
+                vårt team med passion och expertis.
               </p>
             </div>
             <div className="team-member">
               <div className="member-image">
                 <div className="image-placeholder">
-                  <span>Team Member</span>
+                  <span>Teammedlem</span>
                 </div>
               </div>
               <h3>Michael Chen</h3>
-              <p className="member-role">Head Therapist</p>
+              <p className="member-role">Huvudterapeut</p>
               <p className="member-bio">
-                Specializing in therapeutic treatments and bodywork, Michael brings 
-                deep knowledge of healing practices.
+                Specialiserad på terapeutiska behandlingar och kroppsarbete, för med sig Michael 
+                djup kunskap om helande praktiker.
               </p>
             </div>
             <div className="team-member">
               <div className="member-image">
                 <div className="image-placeholder">
-                  <span>Team Member</span>
+                  <span>Teammedlem</span>
                 </div>
               </div>
               <h3>Emma Williams</h3>
-              <p className="member-role">Yoga & Meditation Instructor</p>
+              <p className="member-role">Yoga- & meditationsinstruktör</p>
               <p className="member-bio">
-                Emma guides guests through transformative yoga and meditation practices 
-                for inner peace and balance.
+                Emma guidar gäster genom transformativa yoga- och meditationspraktiker 
+                för inre frid och balans.
               </p>
             </div>
           </div>

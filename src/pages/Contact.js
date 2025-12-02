@@ -40,9 +40,9 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-hero-content">
-          <h1 className="page-title">Contact Us</h1>
+          <h1 className="page-title">Kontakta oss</h1>
           <p className="page-subtitle">
-            Get in touch to book your wellness experience
+            Kontakta oss för att boka din wellness-upplevelse
           </p>
         </div>
       </section>
@@ -52,45 +52,45 @@ const Contact = () => {
         <div className="container">
           <div className="contact-content">
             <div className="contact-info">
-              <h2 className="section-title">Get in Touch</h2>
+              <h2 className="section-title">Kontakta oss</h2>
               <p className="section-text">
-                Have questions? Please contact us first via chat if available. 
-                You can also contact us via the form below and we will get back 
-                to you as soon as possible.
+                Har du frågor? Kontakta oss gärna först via chatt om den är tillgänglig. 
+                Du kan också kontakta oss via formuläret nedan så återkopplar vi 
+                till dig så snart som möjligt.
               </p>
 
               <div className="contact-details">
                 <div className="contact-item">
                   <div className="contact-icon">📞</div>
                   <div className="contact-item-content">
-                    <h3>Phone</h3>
-                    <p>+1 (234) 567-890</p>
-                    <span className="contact-hours">Mon-Sun: 8:00 AM - 8:00 PM</span>
+                    <h3>Telefon</h3>
+                    <p>+46 (0) 8 747 61 00</p>
+                    <span className="contact-hours">Mån-Sön: 08:00 - 20:00</span>
                   </div>
                 </div>
 
                 <div className="contact-item">
                   <div className="contact-icon">✉️</div>
                   <div className="contact-item-content">
-                    <h3>Email</h3>
-                    <p>info@mintiwellness.com</p>
-                    <p>reservations@mintiwellness.com</p>
+                    <h3>E-post</h3>
+                    <p>info@minti.se</p>
+                    <p>bokning@minti.se</p>
                   </div>
                 </div>
 
                 <div className="contact-item">
                   <div className="contact-icon">📍</div>
                   <div className="contact-item-content">
-                    <h3>Address</h3>
-                    <p>123 Wellness Way</p>
-                    <p>Serenity City, SC 12345</p>
-                    <p>United States</p>
+                    <h3>Adress</h3>
+                    <p>Hamndalsvägen 8</p>
+                    <p>132 39 Stockholm</p>
+                    <p>Sverige</p>
                   </div>
                 </div>
               </div>
 
               <div className="contact-social">
-                <h3>Follow Us</h3>
+                <h3>Följ oss</h3>
                 <div className="social-links">
                   <a href="#" className="social-link">Facebook</a>
                   <a href="#" className="social-link">Instagram</a>
@@ -100,10 +100,10 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-wrapper">
-              <h2 className="section-title">Contact Form</h2>
+              <h2 className="section-title">Kontaktformulär</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name">Name *</label>
+                  <label htmlFor="name">Namn *</label>
                   <input
                     type="text"
                     id="name"
@@ -115,7 +115,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email *</label>
+                  <label htmlFor="email">E-post *</label>
                   <input
                     type="email"
                     id="email"
@@ -127,7 +127,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">Phone</label>
+                  <label htmlFor="phone">Telefon</label>
                   <input
                     type="tel"
                     id="phone"
@@ -138,7 +138,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="bookingNumber">Booking Number (if applicable)</label>
+                  <label htmlFor="bookingNumber">Bokningsnummer (om tillämpligt)</label>
                   <input
                     type="text"
                     id="bookingNumber"
@@ -149,7 +149,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message">Message *</label>
+                  <label htmlFor="message">Meddelande *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -162,12 +162,12 @@ const Contact = () => {
 
                 {formStatus === 'success' && (
                   <div className="form-success">
-                    Thank you! Your message has been sent. We'll get back to you soon.
+                    Tack! Ditt meddelande har skickats. Vi återkommer till dig snart.
                   </div>
                 )}
 
                 <button type="submit" className="btn btn-primary">
-                  Send Message
+                  Skicka meddelande
                 </button>
               </form>
             </div>
@@ -179,8 +179,8 @@ const Contact = () => {
       <section className="map-section">
         <div className="map-container">
           <div className="map-placeholder">
-            <span>Map Location</span>
-            <p>123 Wellness Way, Serenity City, SC 12345</p>
+            <span>Kartplats</span>
+            <p>Hamndalsvägen 8, 132 39 Stockholm</p>
           </div>
         </div>
       </section>
@@ -189,13 +189,13 @@ const Contact = () => {
       <section className="booking-cta">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-title">Ready to Book Your Stay?</h2>
+            <h2 className="cta-title">Redo att boka din vistelse?</h2>
             <p className="cta-text">
-              Explore our packages and book your wellness experience today.
+              Utforska våra paket och boka din wellness-upplevelse idag.
             </p>
             <div className="cta-buttons">
-              <a href="/services" className="btn btn-primary">View Packages</a>
-              <a href="/gallery" className="btn btn-secondary">View Gallery</a>
+              <a href="/services" className="btn btn-primary">Se paket</a>
+              <a href="/gallery" className="btn btn-secondary">Se galleri</a>
             </div>
           </div>
         </div>

@@ -6,45 +6,45 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: 'Spa Treatments',
-      description: 'Indulge in our range of therapeutic spa treatments designed to rejuvenate your body and mind. From deep tissue massages to aromatherapy sessions.',
-      image: 'Spa Treatments',
-      features: ['Swedish Massage', 'Deep Tissue', 'Hot Stone Therapy', 'Aromatherapy']
+      title: 'Spa-behandlingar',
+      description: 'Njut av vårt utbud av terapeutiska spa-behandlingar designade för att förnya din kropp och ditt sinne. Från djupvävnadsmassage till aromaterapi-sessioner.',
+      image: 'Spa-behandlingar',
+      features: ['Svensk massage', 'Djupvävnad', 'Varm stensterapi', 'Aromaterapi']
     },
     {
       id: 2,
-      title: 'Wellness Programs',
-      description: 'Comprehensive wellness programs tailored to your needs. Experience a holistic approach to health and wellbeing with our expert-guided programs.',
-      image: 'Wellness Programs',
-      features: ['Detox Programs', 'Weight Management', 'Stress Relief', 'Energy Boost']
+      title: 'Wellness-program',
+      description: 'Omfattande wellness-program skräddarsydda efter dina behov. Upplev ett holistiskt förhållningssätt till hälsa och välbefinnande med våra expertguidade program.',
+      image: 'Wellness-program',
+      features: ['Detox-program', 'Viktkontroll', 'Stresslindring', 'Energiboost']
     },
     {
       id: 3,
       title: 'Yoga & Meditation',
-      description: 'Find inner peace and balance through our yoga and meditation classes. Suitable for all levels, from beginners to advanced practitioners.',
+      description: 'Hitta inre frid och balans genom våra yoga- och meditationsklasser. Lämpligt för alla nivåer, från nybörjare till avancerade utövare.',
       image: 'Yoga & Meditation',
-      features: ['Hatha Yoga', 'Vinyasa Flow', 'Meditation Sessions', 'Breathing Techniques']
+      features: ['Hatha Yoga', 'Vinyasa Flow', 'Meditationssessioner', 'Andningstekniker']
     },
     {
       id: 4,
-      title: 'Thermal Experiences',
-      description: 'Experience the healing power of heat and cold with our thermal facilities. From saunas to cold plunges, restore your body\'s natural balance.',
-      image: 'Thermal Experiences',
-      features: ['Finnish Sauna', 'Steam Room', 'Cold Plunge', 'Infrared Therapy']
+      title: 'Termiska upplevelser',
+      description: 'Upplev den helande kraften av värme och kyla med våra termiska faciliteter. Från bastur till kalla dopp, återställ din kropps naturliga balans.',
+      image: 'Termiska upplevelser',
+      features: ['Finsk bastu', 'Ångbad', 'Kallt dopp', 'Infraröd terapi']
     },
     {
       id: 5,
-      title: 'Nutritional Guidance',
-      description: 'Nourish your body with personalized nutritional guidance. Our experts will help you create a meal plan that supports your wellness goals.',
-      image: 'Nutritional Guidance',
-      features: ['Personal Consultations', 'Meal Planning', 'Dietary Analysis', 'Recipe Guidance']
+      title: 'Näringsrådgivning',
+      description: 'Närma din kropp med personlig näringsrådgivning. Våra experter hjälper dig att skapa en måltidsplan som stödjer dina wellness-mål.',
+      image: 'Näringsrådgivning',
+      features: ['Personliga konsultationer', 'Måltidsplanering', 'Kostanalys', 'Receptrådgivning']
     },
     {
       id: 6,
-      title: 'Holistic Therapies',
-      description: 'Explore alternative healing modalities including acupuncture, reflexology, and energy healing. Restore harmony to your body\'s energy systems.',
-      image: 'Holistic Therapies',
-      features: ['Acupuncture', 'Reflexology', 'Reiki', 'Crystal Healing']
+      title: 'Holistiska terapier',
+      description: 'Utforska alternativa helande modaliteter inklusive akupunktur, reflexologi och energiterapi. Återställ harmoni till din kropps energisystem.',
+      image: 'Holistiska terapier',
+      features: ['Akupunktur', 'Reflexologi', 'Reiki', 'Kristallhealing']
     }
   ];
 
@@ -53,9 +53,9 @@ const Services = () => {
       {/* Hero Section */}
       <section className="services-hero">
         <div className="services-hero-content">
-          <h1 className="page-title">Our Services</h1>
+          <h1 className="page-title">Våra tjänster</h1>
           <p className="page-subtitle">
-            A comprehensive range of wellness experiences tailored to your needs
+            Ett omfattande utbud av wellness-upplevelser skräddarsydda efter dina behov
           </p>
         </div>
       </section>
@@ -79,7 +79,7 @@ const Services = () => {
                       <li key={index}>{feature}</li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="service-btn">Book Now</Link>
+                  <Link to="/contact" className="service-btn">Boka nu</Link>
                 </div>
               </div>
             ))}
@@ -90,52 +90,50 @@ const Services = () => {
       {/* Packages Section */}
       <section className="packages-section">
         <div className="container">
-          <h2 className="section-title center">Wellness Packages</h2>
-          <p className="section-subtitle center">
-            Choose from our curated packages for a complete wellness experience
-          </p>
+          <h2 className="section-title center">Wellness-paket</h2>
+          <p className="section-subheading center">Välj bland våra kuraterade paket för en komplett wellness-upplevelse</p>
           <div className="packages-grid">
             <div className="package-card">
-              <h3 className="package-name">Day Retreat</h3>
-              <div className="package-price">$199</div>
-              <p className="package-duration">Full Day Experience</p>
+              <h3 className="package-name">Dagreträtt</h3>
+              <div className="package-price">1990 kr</div>
+              <p className="package-duration">Heldagsupplevelse</p>
               <ul className="package-features">
-                <li>Access to all facilities</li>
-                <li>2 spa treatments</li>
-                <li>Yoga & meditation class</li>
-                <li>Healthy lunch included</li>
-                <li>Wellness consultation</li>
+                <li>Tillgång till alla faciliteter</li>
+                <li>2 spa-behandlingar</li>
+                <li>Yoga- & meditationsklass</li>
+                <li>Nyttig lunch inkluderad</li>
+                <li>Wellness-konsultation</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Book Package</Link>
+              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
             </div>
             <div className="package-card featured">
-              <div className="package-badge">Most Popular</div>
-              <h3 className="package-name">Weekend Escape</h3>
-              <div className="package-price">$599</div>
-              <p className="package-duration">2 Nights / 3 Days</p>
+              <div className="package-badge">Mest populär</div>
+              <h3 className="package-name">Helgflykt</h3>
+              <div className="package-price">5990 kr</div>
+              <p className="package-duration">2 nätter / 3 dagar</p>
               <ul className="package-features">
-                <li>Accommodation included</li>
-                <li>All meals included</li>
-                <li>4 spa treatments</li>
-                <li>Daily yoga classes</li>
-                <li>Wellness program</li>
-                <li>Personal consultation</li>
+                <li>Boende inkluderat</li>
+                <li>Alla måltider inkluderade</li>
+                <li>4 spa-behandlingar</li>
+                <li>Dagliga yogaklasser</li>
+                <li>Wellness-program</li>
+                <li>Personlig konsultation</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Book Package</Link>
+              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
             </div>
             <div className="package-card">
-              <h3 className="package-name">Wellness Week</h3>
-              <div className="package-price">$1,999</div>
-              <p className="package-duration">7 Days / 6 Nights</p>
+              <h3 className="package-name">Wellness-vecka</h3>
+              <div className="package-price">19 990 kr</div>
+              <p className="package-duration">7 dagar / 6 nätter</p>
               <ul className="package-features">
-                <li>Luxury accommodation</li>
-                <li>All meals & beverages</li>
-                <li>Unlimited spa access</li>
-                <li>Daily wellness activities</li>
-                <li>Personalized program</li>
-                <li>Follow-up support</li>
+                <li>Lyxboende</li>
+                <li>Alla måltider & drycker</li>
+                <li>Obegränsad spa-tillgång</li>
+                <li>Dagliga wellness-aktiviteter</li>
+                <li>Personligt program</li>
+                <li>Uppföljningsstöd</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Book Package</Link>
+              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
             </div>
           </div>
         </div>
@@ -145,14 +143,14 @@ const Services = () => {
       <section className="services-cta">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-title">Ready to Begin Your Wellness Journey?</h2>
+            <h2 className="cta-title">Redo att börja din wellnessresa?</h2>
             <p className="cta-text">
-              Contact us today to discuss your wellness goals and create a 
-              personalized experience just for you.
+              Kontakta oss idag för att diskutera dina wellness-mål och skapa en 
+              personlig upplevelse just för dig.
             </p>
             <div className="cta-buttons">
-              <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
-              <Link to="/gallery" className="btn btn-secondary">View Gallery</Link>
+              <Link to="/contact" className="btn btn-primary">Kontakta oss</Link>
+              <Link to="/gallery" className="btn btn-secondary">Se galleri</Link>
             </div>
           </div>
         </div>

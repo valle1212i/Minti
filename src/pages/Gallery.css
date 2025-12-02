@@ -34,17 +34,19 @@
 }
 
 .page-title {
-  font-family: 'Playfair Display', serif;
+  font-family: inherit;
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 1rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .page-subtitle {
-  font-size: 1.3rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
   opacity: 0.95;
+  line-height: 1.6;
 }
 
 .gallery-filters {
@@ -69,7 +71,7 @@
   background: transparent;
   border: 2px solid #e8e8e8;
   color: #555;
-  border-radius: 2px;
+  border-radius: 50px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -157,7 +159,7 @@
 .gallery-title {
   color: white;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -222,7 +224,7 @@
   color: white;
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -240,11 +242,13 @@
 }
 
 .cta-title {
-  font-family: 'Playfair Display', serif;
+  font-family: inherit;
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   color: #2c2c2c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cta-text {
@@ -255,26 +259,40 @@
 }
 
 .btn {
-  padding: 1rem 2.5rem;
-  font-size: 0.95rem;
+  padding: 0.75rem 2rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  border-radius: 2px;
+  letter-spacing: 1px;
+  border-radius: 50px;
   transition: all 0.3s ease;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
 }
 
 .btn-primary {
   background: #5a7c65;
   color: white;
+  border: none;
+}
+
+.btn-primary::after {
+  content: '→';
+  font-size: 1rem;
+  transition: transform 0.3s ease;
 }
 
 .btn-primary:hover {
   background: #4a6b55;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(90, 124, 101, 0.3);
+}
+
+.btn-primary:hover::after {
+  transform: translateX(3px);
 }
 
 @media (max-width: 968px) {
