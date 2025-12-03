@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import Booking from '../components/Booking';
 import './Contact.css';
 
 const Contact = () => {
+  const [showBooking, setShowBooking] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +39,7 @@ const Contact = () => {
 
   return (
     <div className="contact">
+      {showBooking && <Booking onClose={() => setShowBooking(false)} />}
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-hero-content">
@@ -101,6 +104,11 @@ const Contact = () => {
 
             <div className="contact-form-wrapper">
               <h2 className="section-title">Kontaktformulär</h2>
+              <div style={{ marginBottom: '2rem' }}>
+                <button onClick={() => setShowBooking(true)} className="btn btn-primary" style={{ width: '100%' }}>
+                  Boka nu →
+                </button>
+              </div>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Namn *</label>
@@ -194,8 +202,8 @@ const Contact = () => {
               Utforska våra paket och boka din wellness-upplevelse idag.
             </p>
             <div className="cta-buttons">
-              <a href="/services" className="btn btn-primary">Se paket</a>
-              <a href="/gallery" className="btn btn-secondary">Se galleri</a>
+              <button onClick={() => setShowBooking(true)} className="btn btn-primary">Boka nu</button>
+              <a href="/services" className="btn btn-secondary">Se paket</a>
             </div>
           </div>
         </div>
