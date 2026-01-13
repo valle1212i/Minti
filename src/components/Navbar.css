@@ -60,10 +60,6 @@
   padding: 0.5rem 0;
 }
 
-.navbar.scrolled .navbar-link {
-  color: #2c2c2c;
-}
-
 .navbar-link::after {
   content: '';
   position: absolute;
@@ -84,11 +80,18 @@
   width: 100%;
 }
 
-.navbar-link:hover,
-.navbar-link.active {
+/* Base hover and active states - only apply when NOT scrolled */
+.navbar:not(.scrolled) .navbar-link:hover,
+.navbar:not(.scrolled) .navbar-link.active {
   color: white;
 }
 
+/* Scrolled state - all links should be dark */
+.navbar.scrolled .navbar-link {
+  color: #2c2c2c;
+}
+
+/* Scrolled state hover and active - green color */
 .navbar.scrolled .navbar-link:hover,
 .navbar.scrolled .navbar-link.active {
   color: #5a7c65;

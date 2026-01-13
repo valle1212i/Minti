@@ -28,3 +28,8 @@ EXPOSE 8080
 # Start the app and listen on $PORT
 CMD ["sh", "-c", "serve -s build -l $PORT"]
 
+
+
+
+
+
