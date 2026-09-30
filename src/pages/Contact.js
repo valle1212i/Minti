@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Booking from '../components/Booking';
+import { Link } from 'react-router-dom';
+import { portalPost } from '../lib/portal';
 import './Contact.css';
 
 const Contact = () => {
-  const [showBooking, setShowBooking] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +13,8 @@ const Contact = () => {
   });
 
   const [formStatus, setFormStatus] = useState('');
+  // Honungsfälla: ett dolt fält som människor lämnar tomt (portalen avvisar ifyllt).
+  const [company, setCompany] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -21,25 +23,31 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  // Meddelandet skickas till kundportalen (via /api/portal/contact) och visas som
+  // lyckat först när portalen har tagit emot det.
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setFormStatus('success');
-    setTimeout(() => {
-      setFormStatus('');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        bookingNumber: '',
-        message: ''
+    setFormStatus('sending');
+    const message = formData.bookingNumber.trim()
+      ? `${formData.message.trim()}\n\nBokningsnummer: ${formData.bookingNumber.trim()}`
+      : formData.message.trim();
+    try {
+      await portalPost('/contact', {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        message,
+        company
       });
-    }, 3000);
+      setFormStatus('success');
+      setFormData({ name: '', email: '', phone: '', bookingNumber: '', message: '' });
+    } catch (err) {
+      setFormStatus('error');
+    }
   };
 
   return (
     <div className="contact">
-      {showBooking && <Booking onClose={() => setShowBooking(false)} />}
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="contact-hero-content">
@@ -95,9 +103,9 @@ const Contact = () => {
               <div className="contact-social">
                 <h3>Följ oss</h3>
                 <div className="social-links">
-                  <a href="#" className="social-link">Facebook</a>
-                  <a href="#" className="social-link">Instagram</a>
-                  <a href="#" className="social-link">Twitter</a>
+                  <span className="social-link">Facebook</span>
+                  <span className="social-link">Instagram</span>
+                  <span className="social-link">Twitter</span>
                 </div>
               </div>
             </div>
@@ -105,9 +113,9 @@ const Contact = () => {
             <div className="contact-form-wrapper">
               <h2 className="section-title">Kontaktformulär</h2>
               <div style={{ marginBottom: '2rem' }}>
-                <button onClick={() => setShowBooking(true)} className="btn btn-primary" style={{ width: '100%' }}>
+                <Link to="/book" className="btn btn-primary" style={{ width: '100%', display: 'block', textAlign: 'center' }}>
                   Boka nu →
-                </button>
+                </Link>
               </div>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -168,14 +176,24 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                <div className="form-group" aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: '1px', height: '1px', overflow: 'hidden' }}>
+                  <label htmlFor="company">Lämna tomt</label>
+                  <input type="text" id="company" name="company" tabIndex={-1} autoComplete="off" value={company} onChange={(e) => setCompany(e.target.value)} />
+                </div>
+
                 {formStatus === 'success' && (
-                  <div className="form-success">
+                  <div className="form-success" role="status">
                     Tack! Ditt meddelande har skickats. Vi återkommer till dig snart.
                   </div>
                 )}
+                {formStatus === 'error' && (
+                  <div className="form-success" role="alert" style={{ background: '#fbecec', color: '#a33a3a' }}>
+                    Meddelandet kunde inte skickas. Försök igen eller ring oss.
+                  </div>
+                )}
 
-                <button type="submit" className="btn btn-primary">
-                  Skicka meddelande
+                <button type="submit" className="btn btn-primary" disabled={formStatus === 'sending'}>
+                  {formStatus === 'sending' ? 'Skickar…' : 'Skicka meddelande'}
                 </button>
               </form>
             </div>
@@ -202,7 +220,7 @@ const Contact = () => {
               Utforska våra paket och boka din wellness-upplevelse idag.
             </p>
             <div className="cta-buttons">
-              <button onClick={() => setShowBooking(true)} className="btn btn-primary">Boka nu</button>
+              <Link to="/book" className="btn btn-primary">Boka nu</Link>
               <a href="/services" className="btn btn-secondary">Se paket</a>
             </div>
           </div>

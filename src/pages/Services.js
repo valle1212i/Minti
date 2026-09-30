@@ -79,7 +79,7 @@ const Services = () => {
                       <li key={index}>{feature}</li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="service-btn">Boka nu</Link>
+                  <Link to="/book" className="service-btn">Boka nu</Link>
                 </div>
               </div>
             ))}
@@ -104,7 +104,7 @@ const Services = () => {
                 <li>Nyttig lunch inkluderad</li>
                 <li>Wellness-konsultation</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
+              <Link to="/book" className="btn btn-primary">Boka paket</Link>
             </div>
             <div className="package-card featured">
               <div className="package-badge">Mest populär</div>
@@ -119,7 +119,7 @@ const Services = () => {
                 <li>Wellness-program</li>
                 <li>Personlig konsultation</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
+              <Link to="/book" className="btn btn-primary">Boka paket</Link>
             </div>
             <div className="package-card">
               <h3 className="package-name">Wellness-vecka</h3>
@@ -133,7 +133,7 @@ const Services = () => {
                 <li>Personligt program</li>
                 <li>Uppföljningsstöd</li>
               </ul>
-              <Link to="/contact" className="btn btn-primary">Boka paket</Link>
+              <Link to="/book" className="btn btn-primary">Boka paket</Link>
             </div>
           </div>
         </div>

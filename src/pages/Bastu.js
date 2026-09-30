@@ -96,7 +96,7 @@ const Bastu = () => {
               Boka ditt besök idag och upplev den välgörande effekten av värme och avslappning.
             </p>
             <div className="cta-actions">
-              <Link to="/contact" className="btn btn-primary">Boka nu</Link>
+              <Link to="/book" className="btn btn-primary">Boka nu</Link>
               <Link to="/wellness-experience" className="btn btn-secondary">Läs mer om upplevelsen</Link>
             </div>
           </div>

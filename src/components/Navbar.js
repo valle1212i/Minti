@@ -1,6 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { usePortal } from '../lib/portal';
 import './Navbar.css';
+
+// Menyposter som styrs från kundportalens menyredigerare (navigation-layout): ordning,
+// synlighet och etikett. Portalvärdade sidor (portalPath, t.ex. retur) går via /go/:id.
+const PORTAL_NAV = {
+  about: { to: '/about', label: 'Om oss' },
+  contact: { to: '/contact', label: 'Kontakt' },
+  shop: { to: '/shop', label: 'Butik' },
+  categories: { to: '/categories', label: 'Kategorier' },
+  news: { to: '/news', label: 'Nyheter' },
+  subscriptions: { to: '/subscriptions', label: 'Prenumerationer' },
+  gift_cards: { to: '/gift-cards', label: 'Presentkort' }
+};
+const FALLBACK_LINKS = [{ id: 'about', visible: true }, { id: 'contact', visible: true }, { id: 'book', visible: true }];
+
+function portalLinks(nav) {
+  const links = nav && Array.isArray(nav.links) && nav.links.length > 0 ? nav.links : FALLBACK_LINKS;
+  return links.filter((l) => l && l.visible !== false);
+}
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,6 +27,9 @@ const Navbar = () => {
   const [isWellnessDropdownOpen, setIsWellnessDropdownOpen] = useState(false);
   const location = useLocation();
   const dropdownTimeoutRef = useRef(null);
+  const { data: nav } = usePortal('/navigation-layout');
+  const links = portalLinks(nav);
+  const showBooking = links.some((l) => l.id === 'book');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,13 +83,6 @@ const Navbar = () => {
             Hem
           </Link>
           <Link 
-            to="/about" 
-            className={`navbar-link ${location.pathname === '/about' ? 'active' : ''}`}
-            onClick={closeMobileMenu}
-          >
-            Om oss
-          </Link>
-          <Link 
             to="/services" 
             className={`navbar-link ${location.pathname === '/services' ? 'active' : ''}`}
             onClick={closeMobileMenu}
@@ -115,16 +130,32 @@ const Navbar = () => {
           >
             Galleri
           </Link>
-          <Link 
-            to="/contact" 
-            className={`navbar-link ${location.pathname === '/contact' ? 'active' : ''}`}
-            onClick={closeMobileMenu}
-          >
-            Kontakt
-          </Link>
-          <Link to="/contact" className="navbar-cta" onClick={closeMobileMenu}>
-            Boka nu
-          </Link>
+          {links.map((link) => {
+            if (link.portalPath) {
+              return (
+                <a key={link.id} href={`/go/${encodeURIComponent(link.id)}`} className="navbar-link" onClick={closeMobileMenu}>
+                  {link.label || 'Retur'}
+                </a>
+              );
+            }
+            const target = PORTAL_NAV[link.id];
+            if (!target) return null;
+            return (
+              <Link
+                key={link.id}
+                to={target.to}
+                className={`navbar-link ${location.pathname.startsWith(target.to) ? 'active' : ''}`}
+                onClick={closeMobileMenu}
+              >
+                {link.label || target.label}
+              </Link>
+            );
+          })}
+          {showBooking && (
+            <Link to="/book" className="navbar-cta" onClick={closeMobileMenu}>
+              Boka nu
+            </Link>
+          )}
         </div>
 
         <button 
