@@ -1,9 +1,9 @@
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 
-# Install dependencies
+# Install dependencies (exakt enligt lockfilen)
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Copy source
 COPY . .
@@ -12,24 +12,22 @@ COPY . .
 RUN npm run build
 
 # ----- Runtime image -----
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
+ENV NODE_ENV=production
 
-# Install a static file server
-RUN npm install -g serve
+# Bara serverns produktionsberoenden (express); React-verktygen behövs inte i drift.
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Copy built app from builder stage
+# Servern, portaladaptern och det byggda klientpaketet
+COPY server.js ./
+COPY lib ./lib
 COPY --from=builder /app/build ./build
 
 # Cloud Run uses the PORT env variable
 ENV PORT=8080
 EXPOSE 8080
 
-# Start the app and listen on $PORT
-CMD ["sh", "-c", "serve -s build -l $PORT"]
-
-
-
-
-
-
+# Servern läser konfigurationen ur miljön och dör vid start om ett obligatoriskt namn saknas.
+CMD ["node", "server.js"]

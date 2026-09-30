@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import LandingSections from '../components/LandingSections';
 import './Home.css';
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
               En plats där modern wellness möter tidlös frid.
             </p>
             <div className="hero-buttons">
-              <Link to="/contact" className="btn btn-primary">Boka ditt besök</Link>
+              <Link to="/book" className="btn btn-primary">Boka ditt besök</Link>
             </div>
           </div>
         </div>
@@ -123,7 +124,7 @@ const Home = () => {
                   och njut av utsökta måltider inspirerade av holistisk näring i en av våra restauranger. 
                   Stanna över natten eller besök för dagen.
                 </p>
-                <Link to="/contact" className="btn btn-primary">Boka vistelse</Link>
+                <Link to="/book" className="btn btn-primary">Boka vistelse</Link>
               </div>
             </div>
             <div className="visit-card">
@@ -141,7 +142,7 @@ const Home = () => {
                   wellness-tjänster, behandlingar och faciliteter under dagen 
                   eller kvällen. En komplett wellness-upplevelse i ett enda besök.
                 </p>
-                <Link to="/contact" className="btn btn-primary">Boka dagspa</Link>
+                <Link to="/book" className="btn btn-primary">Boka dagspa</Link>
               </div>
             </div>
           </div>
@@ -192,13 +193,14 @@ const Home = () => {
                 alltid inkluderad när du bokar övernattningspaket hos oss.
               </p>
               <div className="accommodation-buttons">
-                <Link to="/contact" className="btn btn-primary">Boka boende</Link>
+                <Link to="/book" className="btn btn-primary">Boka boende</Link>
                 <Link to="/gallery" className="btn btn-outline">Se rum</Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <LandingSections />
     </div>
   );
 };

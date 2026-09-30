@@ -491,3 +491,41 @@
 
 
 
+
+/* Bokningen som egen sida (/book) i stället för modal. */
+.booking-page-card {
+  max-height: none;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.booking-subtitle {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.booking-error {
+  color: #a33a3a;
+}
+
+.booking-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.booking-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 0.5rem;
+}
+
+.booking-legal {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.booking-legal a {
+  text-decoration: underline;
+}
