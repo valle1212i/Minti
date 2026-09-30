@@ -11,6 +11,7 @@ import WellnessExperience from './pages/WellnessExperience';
 import Bastu from './pages/Bastu';
 import Book from './pages/Book';
 import Shop from './pages/Shop';
+import Product from './pages/Product';
 import Categories from './pages/Categories';
 import News from './pages/News';
 import Subscriptions from './pages/Subscriptions';
@@ -36,6 +37,7 @@ function App() {
           {/* Ytor kopplade till kundportalen. Sökvägarna är portalens förhandsvisningsvägar. */}
           <Route path="/book" element={<Book />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<Product />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:slug" element={<Categories />} />
           <Route path="/news" element={<News />} />
