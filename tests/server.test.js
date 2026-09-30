@@ -129,6 +129,18 @@ test('sidor: GET ger index.html, POST ger 404 utan index.html', async () => {
   assert.ok(!post.text.includes('<div id="root">'))
 })
 
+test('produktsidan: GET /product/<id> ger index.html, produktdetaljen via adaptern ger JSON', async () => {
+  const page = await call(server, 'GET', '/product/finns-inte')
+  assert.equal(page.status, 200)
+  assert.match(String(page.headers['content-type']), /text\/html/)
+  assert.ok(page.text.includes('<div id="root">'))
+  portalCalls.length = 0
+  const api = await call(server, 'GET', '/api/portal/product/finns-inte')
+  assert.ok(isJson(api))
+  assert.ok(!api.text.includes('<div id="root">'))
+  assert.match(portalCalls[0].url, /\/storefront\/dummy-slug\/product\/finns-inte$/)
+})
+
 test('klientens X-Tenant når aldrig portalen', async () => {
   portalCalls.length = 0
   const res = await call(server, 'GET', '/api/portal/categories', { headers: { 'X-Tenant': 'annan-tenant' } })

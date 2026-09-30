@@ -176,9 +176,148 @@
   gap: 1rem;
 }
 
+.portal-card-link {
+  color: inherit;
+}
+
+.portal-card-link:hover {
+  color: #5a7c65;
+}
+
+/* Produktsidan (/product/:id) */
+
+.portal-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.portal-product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eef3ef;
+}
+
+.portal-product-noimage {
+  display: block;
+}
+
+.portal-product-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.portal-product-thumb {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+}
+
+.portal-product-thumb.active {
+  border-color: #5a7c65;
+}
+
+.portal-product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portal-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.portal-product-title {
+  font-size: 2.2rem;
+  color: #2c2c2c;
+}
+
+.portal-product-price {
+  color: #5a7c65;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.portal-product-description {
+  color: #444;
+  white-space: pre-line;
+}
+
+.portal-product-variants {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.portal-product-variants legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portal-product-variant {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #e3e6e1;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.portal-product-variant.active {
+  border-color: #5a7c65;
+  background: #f6f9f6;
+}
+
+.portal-product-variant.disabled {
+  color: #999;
+}
+
+.portal-product-variant-name {
+  flex: 1;
+}
+
+.portal-product-variant-price {
+  font-weight: 600;
+}
+
+.portal-product-buy {
+  align-self: flex-start;
+}
+
+.portal-product-empty {
+  text-align: center;
+}
+
+.portal-product-empty-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 968px) {
   .portal-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .portal-product {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
