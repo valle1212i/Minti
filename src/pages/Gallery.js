@@ -1,128 +1,127 @@
-import React, { useState } from 'react';
-import './Gallery.css';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { PageHero, Section, Band, ButtonLink, Picture, usePageTitle } from '../components/ui';
+import { img } from '../data/site';
+
+const IMAGES = [
+  { name: 'poolnumebr1', category: 'bad', title: 'Stora badet', alt: 'Inomhusbassäng mellan råa stenväggar och levande ljus' },
+  { name: 'onespapool', category: 'bad', title: 'Utomhusbadet', alt: 'Utomhusbad mellan tallar och stenar i morgondimma' },
+  { name: 'anotherpool', category: 'bad', title: 'Det varma badet', alt: 'Kvinna i baddräkt sitter i ett varmt inomhusbad med ånga och varmt ljus' },
+  { name: 'poolinside1', category: 'bad', title: 'Kvällsbad', alt: 'Varmt vatten hälls från en träskopa i ett dunkelt bad' },
+  { name: 'pictureforbadandkallor', category: 'bad', title: 'Bad i kvällsljus', alt: 'Fötter som kliver ner i ett varmt bad i kvällsljus' },
+  { name: 'dasspaspic', category: 'bad', title: 'Vila i vattnet', alt: 'Gäst som vilar i varmt vatten med blicken mot ljuset' },
+  { name: 'bastu1', category: 'bastu', title: 'Utomhusbastun', alt: 'Utomhusbastu med öppen dörr mot dimmig klippkust' },
+  { name: 'bastunummer2', category: 'bastu', title: 'Torrbastun', alt: 'Ljus träbastu med stort fönster mot grönska' },
+  { name: 'infrarodbastu', category: 'bastu', title: 'Vilobastun', alt: 'Bastu i mörkt trä med varmt rött ljus' },
+  { name: 'zengarden', category: 'tradgard', title: 'Zen-trädgården', alt: 'Stenlagd stig genom en grönskande trädgård med blommande buskar' },
+  { name: 'insidezentype', category: 'tradgard', title: 'Regngången', alt: 'Betonggång med regndusch och ett litet träd' },
+  { name: 'restaturantforspa', category: 'mat', title: 'Restaurangen', alt: 'Kock vid öppen eld i en dämpat upplyst restaurang' },
+  { name: 'spapictureofapart', category: 'boende', title: 'Rum med havsutsikt', alt: 'Ljust rum med låg säng och stora fönster mot havet' }
+];
+
+const CATEGORIES = [
+  { id: 'alla', label: 'Alla' },
+  { id: 'bad', label: 'Bad' },
+  { id: 'bastu', label: 'Bastu' },
+  { id: 'tradgard', label: 'Trädgård & miljö' },
+  { id: 'mat', label: 'Mat' },
+  { id: 'boende', label: 'Boende' }
+];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  usePageTitle('Galleri');
+  const [category, setCategory] = useState('alla');
+  const [open, setOpen] = useState(null);
+  const closeRef = useRef(null);
+  const lastFocus = useRef(null);
+  const list = category === 'alla' ? IMAGES : IMAGES.filter((i) => i.category === category);
 
-  const galleryImages = [
-    { id: 1, category: 'facilities', title: 'Wellnesscenter' },
-    { id: 2, category: 'facilities', title: 'Spa-behandlingsrum' },
-    { id: 3, category: 'accommodation', title: 'Lyxsvit' },
-    { id: 4, category: 'accommodation', title: 'Standardrum' },
-    { id: 5, category: 'dining', title: 'Restaurang' },
-    { id: 6, category: 'dining', title: 'Matsal' },
-    { id: 7, category: 'facilities', title: 'Bastu' },
-    { id: 8, category: 'facilities', title: 'Utomhuspool' },
-    { id: 9, category: 'activities', title: 'Yogastudio' },
-    { id: 10, category: 'activities', title: 'Meditationsutrymme' },
-    { id: 11, category: 'facilities', title: 'Avslappningsområde' },
-    { id: 12, category: 'accommodation', title: 'Svitsbadrum' },
-  ];
+  const close = useCallback(() => {
+    setOpen(null);
+    if (lastFocus.current) lastFocus.current.focus();
+  }, []);
 
-  const categories = ['all', 'facilities', 'accommodation', 'dining', 'activities'];
-  const [activeCategory, setActiveCategory] = useState('all');
+  const step = useCallback((dir) => {
+    setOpen((cur) => (cur === null ? cur : (cur + dir + list.length) % list.length));
+  }, [list.length]);
 
-  const filteredImages = activeCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+  useEffect(() => {
+    if (open === null) return undefined;
+    document.documentElement.classList.add('m-scroll-lock');
+    if (closeRef.current) closeRef.current.focus();
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.documentElement.classList.remove('m-scroll-lock');
+    };
+  }, [open, close, step]);
 
-  const openLightbox = (image) => {
-    setSelectedImage(image);
-  };
-
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
+  const current = open !== null ? list[open] : null;
 
   return (
-    <div className="gallery">
-      {/* Hero Section */}
-      <section className="gallery-hero">
-        <div className="gallery-hero-content">
-          <h1 className="page-title">Galleri</h1>
-          <p className="page-subtitle">
-            Utforska våra fridfulla utrymmen och wellness-faciliteter
-          </p>
-        </div>
-      </section>
+    <div className="m-page">
+      <PageHero
+        eyebrow="Galleri"
+        title="Rum för lugn"
+        lead="Bad, bastu, trädgård och mat. Ta en titt innan du kommer."
+        image="onespapool"
+        imageAlt="Utomhusbad mellan tallar i dimma"
+      />
 
-      {/* Filter Section */}
-      <section className="gallery-filters">
-        <div className="container">
-          <div className="filter-buttons">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category === 'all' ? 'Alla' : 
-                 category === 'facilities' ? 'Faciliteter' :
-                 category === 'accommodation' ? 'Boende' :
-                 category === 'dining' ? 'Mat & Dryck' :
-                 category === 'activities' ? 'Aktiviteter' : category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="gallery-grid-section">
-        <div className="container">
-          <div className="gallery-grid">
-            {filteredImages.map((image) => (
-              <div
-                key={image.id}
-                className="gallery-item"
-                onClick={() => openLightbox(image)}
-              >
-                <div className="gallery-image">
-                  <div className="image-placeholder">
-                    <span>{image.title}</span>
-                  </div>
-                  <div className="gallery-overlay">
-                    <span className="gallery-title">{image.title}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lightbox */}
-      {selectedImage && (
-        <div className="lightbox" onClick={closeLightbox}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={closeLightbox}>
-              ×
+      <Section>
+        <div className="m-chips" role="group" aria-label="Filtrera bilder">
+          {CATEGORIES.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              className={`m-chip${category === c.id ? ' is-active' : ''}`}
+              aria-pressed={category === c.id}
+              onClick={() => { setCategory(c.id); setOpen(null); }}
+            >
+              {c.label}
             </button>
-            <div className="lightbox-image">
-              <div className="image-placeholder large">
-                <span>{selectedImage.title}</span>
-              </div>
+          ))}
+        </div>
+        <ul className="m-gallery">
+          {list.map((image, index) => (
+            <li key={image.name}>
+              <button
+                type="button"
+                className="m-gallery-item"
+                onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(index); }}
+                aria-label={`Visa större: ${image.title}`}
+              >
+                <Picture name={image.name} alt={image.alt} sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+                <span className="m-gallery-caption">{image.title}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {current && (
+        <div className="m-lightbox" role="dialog" aria-modal="true" aria-label={current.title} onClick={close}>
+          <div className="m-lightbox-inner" onClick={(e) => e.stopPropagation()}>
+            <img src={img(current.name).src} alt={current.alt} width="1232" height="928" />
+            <div className="m-lightbox-bar">
+              <button type="button" className="m-lightbox-btn" onClick={() => step(-1)} aria-label="Föregående bild">‹</button>
+              <p>{current.title}</p>
+              <button type="button" className="m-lightbox-btn" onClick={() => step(1)} aria-label="Nästa bild">›</button>
             </div>
-            <div className="lightbox-title">{selectedImage.title}</div>
+            <button type="button" ref={closeRef} className="m-lightbox-close" onClick={close} aria-label="Stäng">×</button>
           </div>
         </div>
       )}
 
-      {/* CTA Section */}
-      <section className="gallery-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Upplev det själv</h2>
-            <p className="cta-text">
-              Redo att besöka vårt wellnesscenter? Boka din vistelse eller dagbesök idag.
-            </p>
-            <a href="/contact" className="btn btn-primary">Boka nu</a>
-          </div>
-        </div>
-      </section>
+      <Band eyebrow="Upplev det själv" title="Välkommen på besök" text="Boka ett dagspa, ett kvällsbad eller en vistelse.">
+        <ButtonLink to="/book" variant="light">Boka besök</ButtonLink>
+      </Band>
     </div>
   );
 };
 
 export default Gallery;
-

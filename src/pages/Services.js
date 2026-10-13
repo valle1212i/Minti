@@ -1,163 +1,126 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Services.css';
+import { PageHero, Section, SectionHead, Band, ButtonLink, Picture, DemoNote, usePageTitle } from '../components/ui';
+import { PRICE_NOTE, formatKr } from '../data/site';
+
+const services = [
+  {
+    title: 'Bad & källor',
+    image: 'onespapool',
+    alt: 'Utomhusbad mellan tallar och stenar i morgondimma',
+    description: 'Varma bad inomhus och utomhus, kolsyrebad och kallbad. Rör dig mellan dem i din egen takt.',
+    features: ['Varma inomhusbad', 'Utomhusbad året om', 'Kolsyrebad i tyst zon', 'Kallbad']
+  },
+  {
+    title: 'Bastu & kallbad',
+    image: 'bastu1',
+    alt: 'Utomhusbastu med öppen dörr mot dimmig klippkust',
+    description: 'Torrbastu, ångbastu med salt och en lugn vilobastu. Kallbadet ligger alltid nära.',
+    features: ['Torrbastu', 'Ångbastu med salt', 'Vilobastu', 'Bastuceremoni']
+  },
+  {
+    title: 'Behandlingar',
+    image: 'dasspaspic',
+    alt: 'Gäst som vilar i varmt vatten med blicken mot ljuset',
+    description: 'Massage och ansiktsbehandlingar i lugna rum, som du lägger till ditt besök.',
+    features: ['Avslappnande massage', 'Ansiktsbehandling', 'Fotbehandling', 'Behandling för två']
+  },
+  {
+    title: 'Stillhet & yoga',
+    image: 'zengarden',
+    alt: 'Stenlagd stig genom en grönskande trädgård',
+    description: 'Lugna yogapass och guidad stillhet i trädgården eller i vårt ljusa övningsrum.',
+    features: ['Morgonyoga', 'Guidad stillhet', 'Andningspass', 'Trädgårdspromenad']
+  },
+  {
+    title: 'Mat & dryck',
+    image: 'restaturantforspa',
+    alt: 'Kock vid öppen eld i en dämpat upplyst restaurang',
+    description: 'Säsongens råvaror i restaurangen, lättare rätter i baren och te i vilorummet.',
+    features: ['Lunch i badrock', 'Avsmakningsmeny', 'Vegetarisk meny', 'Te och frukt i vilorummet']
+  },
+  {
+    title: 'Övernattning',
+    image: 'spapictureofapart',
+    alt: 'Ljust rum med låg säng och stora fönster mot havet',
+    description: 'Ljusa rum med utsikt mot vattnet, frukost och tillgång till baden båda dagarna.',
+    features: ['Rum med havsutsikt', 'Frukost ingår', 'Bad båda dagarna', 'Sen utcheckning']
+  }
+];
+
+const packages = [
+  { name: 'Dagspa', price: 895, duration: 'En dag', features: ['Bad, bastu och vilorum', 'Badrock och tofflor', 'Te och frukt'] },
+  { name: 'Dag med behandling', price: 1790, duration: 'En dag', featured: true, features: ['Allt i dagspa', 'Massage 50 minuter', 'Lunch i restaurangen'] },
+  { name: 'Vistelse', price: 3790, duration: 'En natt, två personer', features: ['Rum med havsutsikt', 'Middag och frukost', 'Bad båda dagarna'] }
+];
 
 const Services = () => {
-  const services = [
-    {
-      id: 1,
-      title: 'Spa-behandlingar',
-      description: 'Njut av vårt utbud av terapeutiska spa-behandlingar designade för att förnya din kropp och ditt sinne. Från djupvävnadsmassage till aromaterapi-sessioner.',
-      image: 'Spa-behandlingar',
-      features: ['Svensk massage', 'Djupvävnad', 'Varm stensterapi', 'Aromaterapi']
-    },
-    {
-      id: 2,
-      title: 'Wellness-program',
-      description: 'Omfattande wellness-program skräddarsydda efter dina behov. Upplev ett holistiskt förhållningssätt till hälsa och välbefinnande med våra expertguidade program.',
-      image: 'Wellness-program',
-      features: ['Detox-program', 'Viktkontroll', 'Stresslindring', 'Energiboost']
-    },
-    {
-      id: 3,
-      title: 'Yoga & Meditation',
-      description: 'Hitta inre frid och balans genom våra yoga- och meditationsklasser. Lämpligt för alla nivåer, från nybörjare till avancerade utövare.',
-      image: 'Yoga & Meditation',
-      features: ['Hatha Yoga', 'Vinyasa Flow', 'Meditationssessioner', 'Andningstekniker']
-    },
-    {
-      id: 4,
-      title: 'Termiska upplevelser',
-      description: 'Upplev den helande kraften av värme och kyla med våra termiska faciliteter. Från bastur till kalla dopp, återställ din kropps naturliga balans.',
-      image: 'Termiska upplevelser',
-      features: ['Finsk bastu', 'Ångbad', 'Kallt dopp', 'Infraröd terapi']
-    },
-    {
-      id: 5,
-      title: 'Näringsrådgivning',
-      description: 'Närma din kropp med personlig näringsrådgivning. Våra experter hjälper dig att skapa en måltidsplan som stödjer dina wellness-mål.',
-      image: 'Näringsrådgivning',
-      features: ['Personliga konsultationer', 'Måltidsplanering', 'Kostanalys', 'Receptrådgivning']
-    },
-    {
-      id: 6,
-      title: 'Holistiska terapier',
-      description: 'Utforska alternativa helande modaliteter inklusive akupunktur, reflexologi och energiterapi. Återställ harmoni till din kropps energisystem.',
-      image: 'Holistiska terapier',
-      features: ['Akupunktur', 'Reflexologi', 'Reiki', 'Kristallhealing']
-    }
-  ];
-
+  usePageTitle('Tjänster');
   return (
-    <div className="services">
-      {/* Hero Section */}
-      <section className="services-hero">
-        <div className="services-hero-content">
-          <h1 className="page-title">Våra tjänster</h1>
-          <p className="page-subtitle">
-            Ett omfattande utbud av wellness-upplevelser skräddarsydda efter dina behov
-          </p>
-        </div>
-      </section>
+    <div className="m-page">
+      <PageHero
+        eyebrow="Tjänster"
+        title="Våra upplevelser"
+        lead="Bad, bastu, behandlingar och mat. Sätt ihop ett besök som passar dig, för några timmar eller några dagar."
+        image="bastunummer2"
+        imageAlt="Ljus träbastu med stort fönster mot grönska"
+      />
 
-      {/* Services Grid */}
-      <section className="services-grid-section">
-        <div className="container">
-          <div className="services-grid">
-            {services.map((service) => (
-              <div key={service.id} className="service-card">
-                <div className="service-image">
-                  <div className="image-placeholder">
-                    <span>{service.image}</span>
-                  </div>
-                </div>
-                <div className="service-content">
-                  <h2 className="service-title">{service.title}</h2>
-                  <p className="service-description">{service.description}</p>
-                  <ul className="service-features">
-                    {service.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                  <Link to="/book" className="service-btn">Boka nu</Link>
+      <Section>
+        <SectionHead center eyebrow="Det här finns hos oss" title="Allt under ett tak" />
+        <div className="m-grid m-grid--3">
+          {services.map((s) => (
+            <article className="m-card" key={s.title}>
+              <div className="m-card-media">
+                <Picture name={s.image} alt={s.alt} sizes="(max-width: 768px) 100vw, 33vw" />
+              </div>
+              <div className="m-card-body">
+                <h2 className="m-card-title">{s.title}</h2>
+                <p className="m-card-text">{s.description}</p>
+                <ul className="m-list">
+                  {s.features.map((f) => <li key={f}>{f}</li>)}
+                </ul>
+                <div className="m-card-foot">
+                  <ButtonLink to="/book">Boka</ButtonLink>
                 </div>
               </div>
-            ))}
-          </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Packages Section */}
-      <section className="packages-section">
-        <div className="container">
-          <h2 className="section-title center">Wellness-paket</h2>
-          <p className="section-subheading center">Välj bland våra kuraterade paket för en komplett wellness-upplevelse</p>
-          <div className="packages-grid">
-            <div className="package-card">
-              <h3 className="package-name">Dagreträtt</h3>
-              <div className="package-price">1990 kr</div>
-              <p className="package-duration">Heldagsupplevelse</p>
-              <ul className="package-features">
-                <li>Tillgång till alla faciliteter</li>
-                <li>2 spa-behandlingar</li>
-                <li>Yoga- & meditationsklass</li>
-                <li>Nyttig lunch inkluderad</li>
-                <li>Wellness-konsultation</li>
+      <Section tone="tint">
+        <SectionHead center eyebrow="Paket" title="Exempel på paket" text="Så här kan ett paket se ut." />
+        <DemoNote>{PRICE_NOTE}</DemoNote>
+        <div className="m-grid m-grid--3">
+          {packages.map((p) => (
+            <article className={`m-panel${p.featured ? ' m-panel--featured' : ''}`} key={p.name}>
+              {p.featured && <p className="m-eyebrow">Populärt val</p>}
+              <h3 className="m-card-title">{p.name}</h3>
+              <p className="m-price">
+                {formatKr(p.price)}
+                <span className="m-price-note">Exempelpris · {p.duration}</span>
+              </p>
+              <ul className="m-list">
+                {p.features.map((f) => <li key={f}>{f}</li>)}
               </ul>
-              <Link to="/book" className="btn btn-primary">Boka paket</Link>
-            </div>
-            <div className="package-card featured">
-              <div className="package-badge">Mest populär</div>
-              <h3 className="package-name">Helgflykt</h3>
-              <div className="package-price">5990 kr</div>
-              <p className="package-duration">2 nätter / 3 dagar</p>
-              <ul className="package-features">
-                <li>Boende inkluderat</li>
-                <li>Alla måltider inkluderade</li>
-                <li>4 spa-behandlingar</li>
-                <li>Dagliga yogaklasser</li>
-                <li>Wellness-program</li>
-                <li>Personlig konsultation</li>
-              </ul>
-              <Link to="/book" className="btn btn-primary">Boka paket</Link>
-            </div>
-            <div className="package-card">
-              <h3 className="package-name">Wellness-vecka</h3>
-              <div className="package-price">19 990 kr</div>
-              <p className="package-duration">7 dagar / 6 nätter</p>
-              <ul className="package-features">
-                <li>Lyxboende</li>
-                <li>Alla måltider & drycker</li>
-                <li>Obegränsad spa-tillgång</li>
-                <li>Dagliga wellness-aktiviteter</li>
-                <li>Personligt program</li>
-                <li>Uppföljningsstöd</li>
-              </ul>
-              <Link to="/book" className="btn btn-primary">Boka paket</Link>
-            </div>
-          </div>
+              <div className="m-actions">
+                <ButtonLink to="/book" variant={p.featured ? 'primary' : 'outline'}>Boka</ButtonLink>
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="services-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Redo att börja din wellnessresa?</h2>
-            <p className="cta-text">
-              Kontakta oss idag för att diskutera dina wellness-mål och skapa en 
-              personlig upplevelse just för dig.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="btn btn-primary">Kontakta oss</Link>
-              <Link to="/gallery" className="btn btn-secondary">Se galleri</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Band
+        eyebrow="Frågor?"
+        title="Vi hjälper dig att planera"
+        text="Berätta vad du vill uppleva, så föreslår vi ett upplägg."
+      >
+        <ButtonLink to="/contact" variant="light">Kontakta oss</ButtonLink>
+        <ButtonLink to="/gallery" variant="ghost">Se galleriet</ButtonLink>
+      </Band>
     </div>
   );
 };
 
 export default Services;
-
