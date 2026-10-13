@@ -1,76 +1,82 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ProductGrid from '../components/ProductGrid';
-import { usePortal, usePreset, usePreview, STOREFRONT_PRESET_KEYS, presetClassNames, presetStyle } from '../lib/portal';
-import '../components/ProductGrid.css';
+import { PageHero, Section, SectionHead, Picture, ButtonLink, usePageTitle } from '../components/ui';
+import ProductCard from '../components/ProductCard';
+import { CATEGORIES, PRODUCTS } from '../data/shop';
+import NotFound from './NotFound';
 
-function flatten(categories, out = []) {
-  for (const c of categories || []) {
-    out.push(c);
-    flatten(c.subcategories, out);
-  }
-  return out;
-}
+const CategoryList = () => (
+  <div className="m-grid">
+    {CATEGORIES.map((c) => {
+      const count = PRODUCTS.filter((p) => p.category === c.slug).length;
+      return (
+        <article className="m-card" key={c.slug}>
+          <Link to={`/categories/${c.slug}`} className="m-card-media" tabIndex={-1} aria-hidden="true">
+            <Picture name={c.image} alt="" sizes="(max-width: 768px) 100vw, 25vw" />
+          </Link>
+          <div className="m-card-body">
+            <h2 className="m-card-title">
+              <Link to={`/categories/${c.slug}`} className="m-card-link">{c.name}</Link>
+            </h2>
+            <p className="m-card-text">{c.description}</p>
+            <p className="m-meta">{count} {count === 1 ? 'upplevelse' : 'upplevelser'}</p>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+);
 
-// /categories och /categories/:slug — kategorierna och deras produkter från kundportalen,
-// i den design tenanten valt i portalens kategoridesign (surface categories).
 const Categories = () => {
   const { slug } = useParams();
-  const saved = usePreset('categories');
-  const [livePreset, setLivePreset] = useState(null);
-  const preset = { ...(saved || {}), ...(livePreset || {}) };
+  const category = slug ? CATEGORIES.find((c) => c.slug === slug) : null;
+  usePageTitle(category ? category.name : 'Kategorier');
 
-  usePreview({
-    surface: 'categories',
-    presetKeys: STOREFRONT_PRESET_KEYS,
-    onPreset: (p) => setLivePreset(p),
-    onClear: () => setLivePreset(null)
-  });
+  if (slug && !category) return <NotFound />;
 
-  const { data, error, loading } = usePortal('/categories');
-  const products = usePortal(slug ? `/categories/${encodeURIComponent(slug)}/products` : null);
-  const all = flatten((data && data.categories) || []);
-  const current = slug ? all.find((c) => c.slug === slug) : null;
-
-  return (
-    <div className="portal-page">
-      <section className="portal-hero">
-        <h1 className="page-title">{current ? current.name : 'Kategorier'}</h1>
-        {current && current.description && <p className="page-subtitle">{current.description}</p>}
-      </section>
-      <section className="portal-section">
-        {loading && !data && <p className="portal-loading">Laddar kategorier…</p>}
-        {error && !data && <p className="portal-error">Kategorierna kunde inte hämtas just nu.</p>}
-        {data && all.length === 0 && <p className="portal-empty">Inga kategorier att visa just nu.</p>}
-        {!slug && all.length > 0 && (
-          <div className={presetClassNames(preset)} style={presetStyle(preset)}>
-            {all.map((c) => (
-              <Link key={c.id} to={`/categories/${encodeURIComponent(c.slug)}`} className="portal-card">
-                {c.imageUrl && preset.imageStyle !== 'none' && <img className="portal-card-image" src={c.imageUrl} alt="" loading="lazy" />}
-                <div className="portal-card-body">
-                  <h3 className="portal-card-title">{c.name}</h3>
-                  {preset.showExcerpt !== false && c.description && <p className="portal-card-text">{c.description}</p>}
-                  {preset.showBadges !== false && <span className="portal-badge">{c.productCount} st</span>}
-                </div>
+  if (category) {
+    const products = PRODUCTS.filter((p) => p.category === category.slug);
+    return (
+      <div className="m-page">
+        <PageHero eyebrow="Kategori" title={category.name} lead={category.description} image={category.image} imageAlt="" />
+        <Section>
+          <nav className="m-chips" aria-label="Kategorier">
+            <Link to="/shop" className="m-chip">Alla</Link>
+            {CATEGORIES.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/categories/${c.slug}`}
+                className={`m-chip${c.slug === category.slug ? ' is-active' : ''}`}
+                aria-current={c.slug === category.slug ? 'page' : undefined}
+              >
+                {c.name}
               </Link>
             ))}
+          </nav>
+          <div className="m-grid m-grid--3">
+            {products.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>
-        )}
-        {slug && (
-          <>
-            <div className="portal-chips">
-              <Link className="portal-chip" to="/categories">Alla kategorier</Link>
-              {all.map((c) => (
-                <Link key={c.id} className={`portal-chip${c.slug === slug ? ' active' : ''}`} to={`/categories/${encodeURIComponent(c.slug)}`}>
-                  {c.name}
-                </Link>
-              ))}
-            </div>
-            {products.loading && !products.data && <p className="portal-loading">Laddar produkter…</p>}
-            {products.data && <ProductGrid products={products.data.products} preset={preset} />}
-          </>
-        )}
-      </section>
+        </Section>
+      </div>
+    );
+  }
+
+  return (
+    <div className="m-page">
+      <PageHero
+        eyebrow="Kategorier"
+        title="Hitta rätt upplevelse"
+        lead="Bad och bastu, behandlingar, mat eller en hel vistelse."
+        image="restaturantforspa"
+        imageAlt="Restaurang i varmt ljus"
+      />
+      <Section>
+        <SectionHead eyebrow="Alla kategorier" title="Välj kategori" />
+        <CategoryList />
+        <div className="m-actions">
+          <ButtonLink to="/shop" variant="outline">Se alla upplevelser</ButtonLink>
+        </div>
+      </Section>
     </div>
   );
 };

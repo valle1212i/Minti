@@ -1,33 +1,35 @@
-import React, { useState } from 'react';
-import ProductGrid from '../components/ProductGrid';
-import { usePortal, usePreview } from '../lib/portal';
-import '../components/ProductGrid.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { PageHero, Section, DemoNote, usePageTitle } from '../components/ui';
+import ProductCard from '../components/ProductCard';
+import { CATEGORIES, PRODUCTS } from '../data/shop';
 
-// /shop — produkterna från kundportalen. Portalens produktguide ramar in sidan och
-// skickar ett utkast (SOURCE_PREVIEW_PRODUCT) som visas överst tills CLEAR.
 const Shop = () => {
-  const { data, error, loading } = usePortal('/products?excludeType=gift_card');
-  const [draft, setDraft] = useState(null);
-
-  usePreview({
-    surface: 'products',
-    onProduct: (product) => setDraft({ ...product, id: '__preview__' }),
-    onClear: () => setDraft(null)
-  });
-
-  const products = (data && data.products) || [];
-
+  usePageTitle('Butik');
+  const products = PRODUCTS.filter((p) => p.type === 'product');
   return (
-    <div className="portal-page">
-      <section className="portal-hero">
-        <h1 className="page-title">Butik</h1>
-        <p className="page-subtitle">Upplevelser och produkter att boka eller köpa</p>
-      </section>
-      <section className="portal-section">
-        {loading && !data && <p className="portal-loading">Laddar produkter…</p>}
-        {error && !data && <p className="portal-error">Produkterna kunde inte hämtas just nu.</p>}
-        {(data || draft) && <ProductGrid products={products} draft={draft} />}
-      </section>
+    <div className="m-page">
+      <PageHero
+        eyebrow="Butik"
+        title="Upplevelser att boka och ge bort"
+        lead="Dagspa, behandlingar, middag och vistelser. Välj en upplevelse åt dig själv eller någon du tycker om."
+        image="poolnumebr1"
+        imageAlt="Inomhusbassäng med mörka stenväggar"
+      />
+      <Section>
+        <DemoNote>Priserna är exempel. Kassan är en demo och tar inte emot betalning.</DemoNote>
+        <nav className="m-chips" aria-label="Kategorier">
+          <Link to="/shop" className="m-chip is-active" aria-current="page">Alla</Link>
+          {CATEGORIES.map((c) => (
+            <Link key={c.slug} to={`/categories/${c.slug}`} className="m-chip">{c.name}</Link>
+          ))}
+          <Link to="/gift-cards" className="m-chip">Presentkort</Link>
+          <Link to="/subscriptions" className="m-chip">Prenumerationer</Link>
+        </nav>
+        <div className="m-grid m-grid--3">
+          {products.map((p) => <ProductCard key={p.id} product={p} />)}
+        </div>
+      </Section>
     </div>
   );
 };
