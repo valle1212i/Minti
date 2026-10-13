@@ -65,7 +65,7 @@ const Home = () => {
               Avskalad dramatik och eleganta miljöer, där du är i centrum. 
               Upptäck vår unika wellness-oas – Minti är en oas inbäddad i fridfulla 
               naturliga omgivningar där traditionella wellness-praktiker möter modern design. 
-              Här väntar wellness på ditt vis, från varma terapeutiska behandlingar till 
+              Här väntar wellness på ditt vis, från varma bad och behandlingar till
               uppfriskande kalla dopp, eller helt enkelt ett riktigt gott ögonblick med fängslande utsikter.
             </p>
             <p className="section-text">
@@ -116,9 +116,15 @@ const Home = () => {
           <div className="visit-cards">
             <div className="visit-card">
               <div className="card-image">
-                <img 
-                  src="/spapictureofapart.png" 
-                  alt="Wellness med övernattning" 
+                <img
+                  src="/bilder/onespapool-1232.webp"
+                  srcSet="/bilder/onespapool-640.webp 640w, /bilder/onespapool-1232.webp 1232w"
+                  sizes="(max-width: 968px) 100vw, 50vw"
+                  width="1232"
+                  height="928"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Utomhusbad mellan stenar och tallar i dimmigt morgonljus"
                   className="card-image-img"
                 />
               </div>
@@ -166,7 +172,7 @@ const Home = () => {
               Bekanta dig med influenser från modern, holistisk matlagning i vår restaurang, 
               vid baren eller på terrassen med drömlika utsikter. Välkommen till en smakresa för alla sinnen.
             </p>
-            <Link to="/services" className="btn-link">Vår restaurang →</Link>
+            <Link to="/services" className="btn-link">Vår restaurang</Link>
           </div>
         </div>
         <div className="dining-image">
