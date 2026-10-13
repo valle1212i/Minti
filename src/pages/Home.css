@@ -553,3 +553,42 @@
   }
 }
 
+
+/* Startsidans utseende fick tidigare några värden från andra sidors globala CSS
+   (About.css, Services.css, Contact.css m.fl., som laddades i samma CSS-fil). De filerna
+   är borttagna och undersidorna har egna klasser (src/styles/site.css), så värdena står
+   här i stället, avgränsade till .home. Startsidan ser därmed ut exakt som förut. */
+.home .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.home .section-text {
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.home .section-subheading {
+  margin-bottom: 2rem;
+}
+
+.home .image-placeholder {
+  min-height: 500px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.home .image-placeholder.large {
+  min-height: 600px;
+}
+
+.home .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .home .section-title {
+    font-size: 2rem;
+  }
+}

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import LandingSections from '../components/LandingSections';
 import './Home.css';
 
 const Home = () => {
@@ -80,9 +79,15 @@ const Home = () => {
       {/* Wellness Experience Section */}
       <section className="wellness-section">
         <div className="wellness-image">
-          <img 
-            src="/twowomenspa.png" 
-            alt="Välmående-upplevelse" 
+          <img
+            src="/bilder/anotherpool-960.webp"
+            srcSet="/bilder/anotherpool-640.webp 640w, /bilder/anotherpool-960.webp 960w, /bilder/anotherpool-1232.webp 1232w"
+            sizes="(max-width: 968px) 100vw, 50vw"
+            width="1232"
+            height="928"
+            loading="lazy"
+            decoding="async"
+            alt="Kvinna i baddräkt sitter i ett varmt inomhusbad med ånga och varmt ljus"
             className="wellness-section-image"
           />
         </div>
@@ -200,7 +205,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <LandingSections />
     </div>
   );
 };
