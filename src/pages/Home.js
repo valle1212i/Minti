@@ -97,11 +97,11 @@ const Home = () => {
             <p className="section-subheading">En plats för alla sinnen</p>
             <p className="section-description">
               En plats för alla sinnen. Börja med vår rengöringsritual, släpp alla 
-              måsten från vardagslivet och låt dig omslutas av varma terapeutiska vatten 
+              måsten från vardagslivet och låt dig omslutas av varmt vatten
               eller väck din livskraft med ett uppfriskande kallt dopp. 
               Våra bastur och utomhusbad väcker dina sinnen, och du bestämmer vad som passar dig.
             </p>
-            <Link to="/wellness-experience" className="btn-link">Läs mer →</Link>
+            <Link to="/wellness-experience" className="btn-link">Läs mer</Link>
           </div>
         </div>
       </section>
@@ -170,9 +170,17 @@ const Home = () => {
           </div>
         </div>
         <div className="dining-image">
-          <div className="image-placeholder">
-            <span>Matupplevelse</span>
-          </div>
+          <img
+            src="/bilder/restaturantforspa-1232.webp"
+            srcSet="/bilder/restaturantforspa-640.webp 640w, /bilder/restaturantforspa-1232.webp 1232w"
+            sizes="(max-width: 968px) 100vw, 50vw"
+            width="1232"
+            height="928"
+            loading="lazy"
+            decoding="async"
+            alt="Kock som lagar mat över öppen låga i en dämpat upplyst restaurang med gäster i bakgrunden"
+            className="home-section-image"
+          />
         </div>
       </section>
 
@@ -181,9 +189,17 @@ const Home = () => {
         <div className="container">
           <div className="accommodation-content">
             <div className="accommodation-image">
-              <div className="image-placeholder large">
-                <span>Boende</span>
-              </div>
+              <img
+                src="/bilder/spapictureofapart-1232.webp"
+                srcSet="/bilder/spapictureofapart-640.webp 640w, /bilder/spapictureofapart-1232.webp 1232w"
+                sizes="(max-width: 968px) 100vw, 50vw"
+                width="1232"
+                height="928"
+                loading="lazy"
+                decoding="async"
+                alt="Ljust rum i trä med låg säng, rispappersväggar och stora fönster mot havet"
+                className="home-section-image home-section-image--large"
+              />
             </div>
             <div className="accommodation-text">
               <h2 className="section-title">Boende</h2>

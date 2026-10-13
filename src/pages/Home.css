@@ -592,3 +592,47 @@
     font-size: 2rem;
   }
 }
+
+/* Bilder i sektionerna Mat & Näring och Boende (ersätter platshållarna, samma höjd som de hade). */
+.home .home-section-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+}
+
+.home .home-section-image--large {
+  min-height: 600px;
+}
+
+/* Kontrast AA (minst 4,5:1) för de texter som låg strax under: en aning mörkare nyans. */
+.home .visit-section .section-subtitle {
+  color: #767676;
+}
+
+.home .dining-section .section-subheading,
+.home .dining-section .btn-link,
+.home .accommodation-section .section-subheading {
+  color: #597b64;
+}
+
+.home .dining-section .btn-link:hover {
+  color: #4a6b55;
+}
+
+/* I en kolumn har platshållarna en fast höjd; bilderna får samma höjd. */
+@media (max-width: 968px) {
+  .home .home-section-image {
+    height: 500px;
+  }
+
+  .home .home-section-image--large {
+    height: 600px;
+  }
+}
+
+/* Kocken står till höger i bilden; behåll honom i smala beskärningar. */
+.home .dining-image .home-section-image {
+  object-position: 75% 50%;
+}
