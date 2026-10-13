@@ -1,176 +1,117 @@
 import React from 'react';
-import './About.css';
+import { PageHero, Section, SectionHead, Split, Band, ButtonLink, Icon, usePageTitle } from '../components/ui';
+
+const values = [
+  {
+    icon: 'leaf',
+    title: 'Naturen nära',
+    text: 'Betong, trä och sten möter tallskog och vatten. Huset är byggt för att kännas lågmält och låta omgivningen ta plats.'
+  },
+  {
+    icon: 'circle',
+    title: 'Tid för dig',
+    text: 'Här finns inga scheman att passa. Du rör dig mellan bad, bastu och vila i den takt som känns rätt för dig.'
+  },
+  {
+    icon: 'hand',
+    title: 'Omtanke i detaljerna',
+    text: 'Badrock, tofflor, te i vilorummet och värdar som hjälper dig till rätta. Det lilla som gör att du kan släppa taget.'
+  }
+];
+
+const hosts = [
+  { icon: 'water', title: 'Bad och bastu', text: 'Värdarna i baden håller koll på temperaturerna och tipsar om i vilken ordning du kan ta baden.' },
+  { icon: 'moon', title: 'Behandlingar', text: 'Våra behandlare tar emot dig i lugna rum och anpassar behandlingen efter dina önskemål.' },
+  { icon: 'flame', title: 'Kök och servering', text: 'Köket lagar mat efter säsong och serverar i restaurangen, i baren och på terrassen.' }
+];
 
 const About = () => {
+  usePageTitle('Om Minti');
   return (
-    <div className="about">
-      {/* Hero Section */}
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <h1 className="page-title">Om Minti</h1>
-          <p className="page-subtitle">
-            En fristad för wellness, frid och förnyelse
-          </p>
-        </div>
-      </section>
+    <div className="m-page">
+      <PageHero
+        eyebrow="Om Minti"
+        title="En plats att andas ut"
+        lead="Minti är en lugn oas för bad, bastu och vila, där modern design möter enkla ritualer kring vatten och värme."
+        image="insidezentype"
+        imageAlt="Betonggång med regndusch och ett litet träd i dämpat ljus"
+      />
 
-      {/* Philosophy Section */}
-      <section className="philosophy-section">
-        <div className="container">
-          <div className="philosophy-content">
-            <div className="philosophy-image">
-              <div className="image-placeholder">
-                <span>Vår filosofi</span>
-              </div>
-            </div>
-            <div className="philosophy-text">
-              <h2 className="section-title">Vår filosofi</h2>
-              <p className="section-subheading">En fristad för wellness, frid och förnyelse</p>
-              <p className="section-text">
-                I nästan tre decennier har Minti varit en plats där människor kommer 
-                för att koppla bort från vardagslivet och samla ny energi. Stillhet, 
-                skönhet och harmoni var de ledande principerna från början. Idag 
-                erbjuder Minti en vacker kontrast mellan det hektiska vardagslivet 
-                och ett ögonblick av frid i en varm fristad. Själens utandning.
-              </p>
-              <p className="section-text">
-                Det är fortfarande wellness-upplevelsen som bildar hjärtat av Minti. 
-                Precis som tidigare börjar wellness-besöket med en introduktion till 
-                vår rengöringsritual, som alla uppmuntras att börja med. 
-                Efter den noggranna rengöringen finns det varma terapeutiska vatten 
-                direkt i behandlingsrummet. Här hittar du också en avslappningsbastu 
-                med aromatiska dofter.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Split
+        image="zengarden"
+        imageAlt="Stenlagd stig genom en grönskande trädgård"
+        eyebrow="Vår filosofi"
+        title="Stillhet som utgångspunkt"
+      >
+        <p className="m-text">
+          Minti skapades för att ge en paus från vardagens tempo. Stillhet, skönhet och harmoni är
+          ledorden, i allt från arkitekturen till hur vi tar emot våra gäster.
+        </p>
+        <p className="m-text">
+          Besöket börjar med en enkel rengöringsritual. Sedan väntar varma bad, bastu och kalla dopp,
+          och mellan dem vilorum och en trädgård att promenera i.
+        </p>
+      </Split>
 
-      {/* Experience Section */}
-      <section className="experience-section">
-        <div className="container">
-          <div className="experience-grid">
-            <div className="experience-item">
-              <div className="experience-icon">
-                <span>🌿</span>
-              </div>
-              <h3>Naturlig miljö</h3>
-              <p>
-                Omgiven av fridfulla naturlandskap är vår anläggning designad 
-                för att harmoniera med den omgivande miljön, vilket skapar en fridfull 
-                tillflyktsort från omvärlden.
-              </p>
+      <Section tone="tint">
+        <SectionHead center eyebrow="Det här tror vi på" title="Så tar vi emot dig" />
+        <div className="m-grid m-grid--3">
+          {values.map((v) => (
+            <div className="m-feature" key={v.title}>
+              <Icon name={v.icon} />
+              <h3>{v.title}</h3>
+              <p>{v.text}</p>
             </div>
-            <div className="experience-item">
-              <div className="experience-icon">
-                <span>🧘</span>
-              </div>
-              <h3>Holistiskt förhållningssätt</h3>
-              <p>
-                Vi tror på att behandla hela människan – sinne, kropp och själ. 
-                Våra program integrerar olika wellness-praktiker för att skapa en 
-                omfattande helande upplevelse.
-              </p>
-            </div>
-            <div className="experience-item">
-              <div className="experience-icon">
-                <span>✨</span>
-              </div>
-              <h3>Personlig omsorg</h3>
-              <p>
-                Varje gäst får personlig uppmärksamhet. Vårt erfarna team 
-                arbetar med dig för att skapa en wellnessresa skräddarsydd efter dina 
-                individuella behov och mål.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Facilities Section */}
-      <section className="facilities-section">
-        <div className="container">
-          <h2 className="section-title center">Våra faciliteter</h2>
-          <p className="section-subheading center">Ett utrymme designat för frid och förnyelse</p>
-          <div className="facilities-content">
-            <div className="facilities-text">
-              <p className="section-text">
-                When you step out of the treatment room, you are met by an environment 
-                inspired by natural courtyards. Here, the courtyard, which consists 
-                of a warm bath with water that maintains 34-36 degrees, is surrounded 
-                by treatment areas with a cold bath, a carbonated bath, and a steam 
-                sauna with salt. Adjacent is also a larger sanarium with a temperature 
-                of 65-80 degrees and views of the surrounding forest.
-              </p>
-              <p className="section-text">
-                The new environment has taken hold of the natural and stands in harmony 
-                with the sparse Nordic forest and sea environment. Concrete and wood are 
-                basic elements together with vegetation that, among other things, consists 
-                of trees adjacent to one of the treatment areas. The environment should 
-                feel intimate and warm, while at the same time there are surfaces for 
-                everyone to find their secluded place.
-              </p>
-            </div>
-            <div className="facilities-image">
-              <div className="image-placeholder large">
-                <span>Faciliteter</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Split
+        reverse
+        tone="tint"
+        image="poolnumebr1"
+        imageAlt="Inomhusbassäng mellan råa stenväggar"
+        eyebrow="Miljön"
+        title="Bad, bastu och vila"
+      >
+        <p className="m-text">
+          Från behandlingsrummen kommer du ut i en innergård med ett varmt bad. Runt det ligger kallbad,
+          kolsyrebad och en ångbastu med salt. Intill finns en större bastu med utsikt mot skogen.
+        </p>
+        <p className="m-text">
+          Betong och trä är grundmaterialen, tillsammans med grönska och träd som växer intill baden.
+          Miljön ska kännas varm och nära, med platser där var och en kan hitta sin egen vrå.
+        </p>
+      </Split>
 
-      {/* Team Section */}
-      <section className="team-section">
-        <div className="container">
-          <h2 className="section-title center">Vårt team</h2>
-          <p className="section-subheading center">Erfarna professionella dedikerade till din wellness</p>
-          <div className="team-grid">
-            <div className="team-member">
-              <div className="member-image">
-                <div className="image-placeholder">
-                  <span>Team Member</span>
-                </div>
-              </div>
-              <h3>Sarah Johnson</h3>
-              <p className="member-role">Wellnessdirektör</p>
-              <p className="member-bio">
-                Med över 15 års erfarenhet inom holistisk wellness leder Sarah 
-                vårt team med passion och expertis.
-              </p>
+      <Section>
+        <SectionHead
+          center
+          eyebrow="Värdskap"
+          title="Våra värdar"
+          text="Värdarna visar dig runt, svarar på frågor och ser till att det är lugnt i de tysta zonerna. Fråga gärna, vi hjälper dig att lägga upp besöket."
+        />
+        <div className="m-grid m-grid--3">
+          {hosts.map((h) => (
+            <div className="m-feature" key={h.title}>
+              <Icon name={h.icon} />
+              <h3>{h.title}</h3>
+              <p>{h.text}</p>
             </div>
-            <div className="team-member">
-              <div className="member-image">
-                <div className="image-placeholder">
-                  <span>Teammedlem</span>
-                </div>
-              </div>
-              <h3>Michael Chen</h3>
-              <p className="member-role">Huvudterapeut</p>
-              <p className="member-bio">
-                Specialiserad på terapeutiska behandlingar och kroppsarbete, för med sig Michael 
-                djup kunskap om helande praktiker.
-              </p>
-            </div>
-            <div className="team-member">
-              <div className="member-image">
-                <div className="image-placeholder">
-                  <span>Teammedlem</span>
-                </div>
-              </div>
-              <h3>Emma Williams</h3>
-              <p className="member-role">Yoga- & meditationsinstruktör</p>
-              <p className="member-bio">
-                Emma guidar gäster genom transformativa yoga- och meditationspraktiker 
-                för inre frid och balans.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </Section>
+
+      <Band
+        eyebrow="Planera ditt besök"
+        title="Välkommen till Minti"
+        text="Boka ett dagspa, ett kvällsbad eller en vistelse med övernattning."
+      >
+        <ButtonLink to="/book" variant="light">Boka besök</ButtonLink>
+        <ButtonLink to="/contact" variant="ghost">Kontakta oss</ButtonLink>
+      </Band>
     </div>
   );
 };
 
 export default About;
-

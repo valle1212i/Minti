@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import LandingSections from '../components/LandingSections';
 import './Home.css';
 
 const Home = () => {
@@ -66,7 +65,7 @@ const Home = () => {
               Avskalad dramatik och eleganta miljöer, där du är i centrum. 
               Upptäck vår unika wellness-oas – Minti är en oas inbäddad i fridfulla 
               naturliga omgivningar där traditionella wellness-praktiker möter modern design. 
-              Här väntar wellness på ditt vis, från varma terapeutiska behandlingar till 
+              Här väntar wellness på ditt vis, från varma bad och behandlingar till
               uppfriskande kalla dopp, eller helt enkelt ett riktigt gott ögonblick med fängslande utsikter.
             </p>
             <p className="section-text">
@@ -80,9 +79,15 @@ const Home = () => {
       {/* Wellness Experience Section */}
       <section className="wellness-section">
         <div className="wellness-image">
-          <img 
-            src="/twowomenspa.png" 
-            alt="Välmående-upplevelse" 
+          <img
+            src="/bilder/anotherpool-960.webp"
+            srcSet="/bilder/anotherpool-640.webp 640w, /bilder/anotherpool-960.webp 960w, /bilder/anotherpool-1232.webp 1232w"
+            sizes="(max-width: 968px) 100vw, 50vw"
+            width="1232"
+            height="928"
+            loading="lazy"
+            decoding="async"
+            alt="Kvinna i baddräkt sitter i ett varmt inomhusbad med ånga och varmt ljus"
             className="wellness-section-image"
           />
         </div>
@@ -92,11 +97,11 @@ const Home = () => {
             <p className="section-subheading">En plats för alla sinnen</p>
             <p className="section-description">
               En plats för alla sinnen. Börja med vår rengöringsritual, släpp alla 
-              måsten från vardagslivet och låt dig omslutas av varma terapeutiska vatten 
+              måsten från vardagslivet och låt dig omslutas av varmt vatten
               eller väck din livskraft med ett uppfriskande kallt dopp. 
               Våra bastur och utomhusbad väcker dina sinnen, och du bestämmer vad som passar dig.
             </p>
-            <Link to="/wellness-experience" className="btn-link">Läs mer →</Link>
+            <Link to="/wellness-experience" className="btn-link">Läs mer</Link>
           </div>
         </div>
       </section>
@@ -111,9 +116,15 @@ const Home = () => {
           <div className="visit-cards">
             <div className="visit-card">
               <div className="card-image">
-                <img 
-                  src="/spapictureofapart.png" 
-                  alt="Wellness med övernattning" 
+                <img
+                  src="/bilder/onespapool-1232.webp"
+                  srcSet="/bilder/onespapool-640.webp 640w, /bilder/onespapool-1232.webp 1232w"
+                  sizes="(max-width: 968px) 100vw, 50vw"
+                  width="1232"
+                  height="928"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Utomhusbad mellan stenar och tallar i dimmigt morgonljus"
                   className="card-image-img"
                 />
               </div>
@@ -161,13 +172,21 @@ const Home = () => {
               Bekanta dig med influenser från modern, holistisk matlagning i vår restaurang, 
               vid baren eller på terrassen med drömlika utsikter. Välkommen till en smakresa för alla sinnen.
             </p>
-            <Link to="/services" className="btn-link">Vår restaurang →</Link>
+            <Link to="/services" className="btn-link">Vår restaurang</Link>
           </div>
         </div>
         <div className="dining-image">
-          <div className="image-placeholder">
-            <span>Matupplevelse</span>
-          </div>
+          <img
+            src="/bilder/restaturantforspa-1232.webp"
+            srcSet="/bilder/restaturantforspa-640.webp 640w, /bilder/restaturantforspa-1232.webp 1232w"
+            sizes="(max-width: 968px) 100vw, 50vw"
+            width="1232"
+            height="928"
+            loading="lazy"
+            decoding="async"
+            alt="Kock som lagar mat över öppen låga i en dämpat upplyst restaurang med gäster i bakgrunden"
+            className="home-section-image"
+          />
         </div>
       </section>
 
@@ -176,9 +195,17 @@ const Home = () => {
         <div className="container">
           <div className="accommodation-content">
             <div className="accommodation-image">
-              <div className="image-placeholder large">
-                <span>Boende</span>
-              </div>
+              <img
+                src="/bilder/spapictureofapart-1232.webp"
+                srcSet="/bilder/spapictureofapart-640.webp 640w, /bilder/spapictureofapart-1232.webp 1232w"
+                sizes="(max-width: 968px) 100vw, 50vw"
+                width="1232"
+                height="928"
+                loading="lazy"
+                decoding="async"
+                alt="Ljust rum i trä med låg säng, rispappersväggar och stora fönster mot havet"
+                className="home-section-image home-section-image--large"
+              />
             </div>
             <div className="accommodation-text">
               <h2 className="section-title">Boende</h2>
@@ -200,7 +227,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <LandingSections />
     </div>
   );
 };

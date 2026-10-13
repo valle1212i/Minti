@@ -1,0 +1,22 @@
+[
+  "/",
+  "/about",
+  "/services",
+  "/gallery",
+  "/contact",
+  "/wellness-experience",
+  "/bastu",
+  "/book",
+  "/shop",
+  "/product/:id",
+  "/categories",
+  "/categories/:slug",
+  "/news",
+  "/news/:slug",
+  "/subscriptions",
+  "/gift-cards",
+  "/kassa",
+  "/tack",
+  "/privacy",
+  "/terms"
+]

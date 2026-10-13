@@ -20,14 +20,14 @@ ENV NODE_ENV=production
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-# Servern, portaladaptern och det byggda klientpaketet
+# Servern, sidlistan den läser och det byggda klientpaketet
 COPY server.js ./
-COPY lib ./lib
+COPY src/data/routes.json ./src/data/routes.json
 COPY --from=builder /app/build ./build
 
 # Cloud Run uses the PORT env variable
 ENV PORT=8080
 EXPOSE 8080
 
-# Servern läser konfigurationen ur miljön och dör vid start om ett obligatoriskt namn saknas.
+# Demosajt: inga hemligheter eller andra miljövariabler behövs.
 CMD ["node", "server.js"]

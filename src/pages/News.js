@@ -1,54 +1,41 @@
-import React, { useState } from 'react';
-import { usePortal, usePreset, usePreview, STOREFRONT_PRESET_KEYS, presetClassNames, presetStyle } from '../lib/portal';
-import '../components/ProductGrid.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { PageHero, Section, Picture, usePageTitle } from '../components/ui';
+import { NEWS, formatDate } from '../data/news';
 
-export function NewsList({ items, preset, limit }) {
-  const list = (items || []).slice(0, limit || undefined);
-  if (list.length === 0) return <p className="portal-empty">Inga nyheter just nu.</p>;
-  const asGrid = preset && preset.layoutVariant && preset.layoutVariant !== 'list';
-  const date = (iso) => (iso ? new Date(iso).toLocaleDateString('sv-SE', { year: 'numeric', month: 'long', day: 'numeric' }) : '');
-  const card = (n) => (
-    <article key={n.id} className={asGrid ? 'portal-card' : 'portal-news-item'}>
-      <div className={asGrid ? 'portal-card-body' : undefined}>
-        {n.startAt && <p className="portal-news-date">{date(n.startAt)}</p>}
-        <h3 className="portal-card-title">{n.title}</h3>
-        {(!preset || preset.showExcerpt !== false) && n.body && <p className="portal-news-body">{n.body}</p>}
-        {n.ctaUrl && /^https?:\/\//.test(n.ctaUrl) && (
-          <a className="btn btn-primary" href={n.ctaUrl} rel="noopener noreferrer">{n.ctaLabel || 'Läs mer'}</a>
-        )}
-      </div>
-    </article>
-  );
-  if (!asGrid) return <div>{list.map(card)}</div>;
-  return <div className={presetClassNames(preset)} style={presetStyle(preset)}>{list.map(card)}</div>;
-}
-
-// /news — nyheter från kundportalen i den design tenanten valt i nyhetsdesign (surface news).
 const News = () => {
-  const saved = usePreset('news');
-  const [livePreset, setLivePreset] = useState(null);
-  const preset = { ...(saved || {}), ...(livePreset || {}) };
-
-  usePreview({
-    surface: 'news',
-    presetKeys: STOREFRONT_PRESET_KEYS,
-    onPreset: (p) => setLivePreset(p),
-    onClear: () => setLivePreset(null)
-  });
-
-  const { data, error, loading } = usePortal('/news');
-
+  usePageTitle('Nyheter');
+  const items = [...NEWS].sort((a, b) => b.date.localeCompare(a.date));
   return (
-    <div className="portal-page">
-      <section className="portal-hero">
-        <h1 className="page-title">Nyheter</h1>
-        <p className="page-subtitle">Det senaste från oss</p>
-      </section>
-      <section className="portal-section">
-        {loading && !data && <p className="portal-loading">Laddar nyheter…</p>}
-        {error && !data && <p className="portal-error">Nyheterna kunde inte hämtas just nu.</p>}
-        {data && <NewsList items={data.data || data.news} preset={preset} />}
-      </section>
+    <div className="m-page">
+      <PageHero
+        eyebrow="Nyheter"
+        title="Nytt från Minti"
+        lead="Säsongens meny, öppettider och livet i trädgården."
+        image="zengarden"
+        imageAlt="Stenlagd stig genom trädgården"
+      />
+      <Section>
+        <div className="m-grid m-grid--3">
+          {items.map((n) => (
+            <article className="m-card" key={n.slug}>
+              <Link to={`/news/${n.slug}`} className="m-card-media" tabIndex={-1} aria-hidden="true">
+                <Picture name={n.image} alt="" sizes="(max-width: 768px) 100vw, 33vw" />
+              </Link>
+              <div className="m-card-body">
+                <p className="m-eyebrow"><time dateTime={n.date}>{formatDate(n.date)}</time></p>
+                <h2 className="m-card-title">
+                  <Link to={`/news/${n.slug}`} className="m-card-link">{n.title}</Link>
+                </h2>
+                <p className="m-card-text">{n.excerpt}</p>
+                <div className="m-card-foot">
+                  <Link to={`/news/${n.slug}`} className="m-link">Läs mer</Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { SITE } from '../data/site';
 import './Footer.css';
 
 const Footer = () => {
@@ -7,59 +9,61 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-logo">Minti</h3>
+            <p className="footer-logo">Minti</p>
             <p className="footer-description">
-              Din resa till wellness börjar här. Upplev frid, 
-              förnyelse och inre lugn i vår fridfulla fristad.
+              Bad, bastu och stillhet i en lugn miljö. Wellness på ditt vis.
             </p>
+            <p className="footer-demo">{SITE.demoNotice}</p>
           </div>
 
           <div className="footer-section">
-            <h4 className="footer-title">Snabblänkar</h4>
+            <h2 className="footer-title">Upptäck</h2>
             <ul className="footer-links">
-              <li><a href="/">Hem</a></li>
-              <li><a href="/about">Om oss</a></li>
-              <li><a href="/services">Tjänster</a></li>
-              <li><a href="/gallery">Galleri</a></li>
-              <li><a href="/contact">Kontakt</a></li>
+              <li><Link to="/wellness-experience">Välmående-upplevelsen</Link></li>
+              <li><Link to="/bastu">Bastu</Link></li>
+              <li><Link to="/services">Tjänster</Link></li>
+              <li><Link to="/gallery">Galleri</Link></li>
+              <li><Link to="/about">Om Minti</Link></li>
+              <li><Link to="/news">Nyheter</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h4 className="footer-title">Tjänster</h4>
+            <h2 className="footer-title">Boka och handla</h2>
             <ul className="footer-links">
-              <li><a href="/services">Spa-behandlingar</a></li>
-              <li><a href="/services">Wellness-program</a></li>
-              <li><a href="/services">Yoga & Meditation</a></li>
-              <li><a href="/services">Näringsrådgivning</a></li>
+              <li><Link to="/book">Boka besök</Link></li>
+              <li><Link to="/shop">Butik</Link></li>
+              <li><Link to="/gift-cards">Presentkort</Link></li>
+              <li><Link to="/subscriptions">Prenumerationer</Link></li>
+              <li><Link to="/contact">Kontakt</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h4 className="footer-title">Kontakt</h4>
+            <h2 className="footer-title">Kontakt</h2>
             <ul className="footer-contact">
               <li>
-                <span className="contact-label">Telefon:</span>
-                <a href="tel:+4687476100">+46 (0) 8 747 61 00</a>
+                <span className="contact-label">Telefon (fiktivt)</span>
+                <a href={SITE.phoneHref}>{SITE.phone}</a>
               </li>
               <li>
-                <span className="contact-label">E-post:</span>
-                <a href="mailto:info@minti.se">info@minti.se</a>
+                <span className="contact-label">E-post (fiktiv)</span>
+                <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               </li>
               <li>
-                <span className="contact-label">Adress:</span>
-                <span>Hamndalsvägen 8, 132 39 Stockholm</span>
+                <span className="contact-label">Adress (fiktiv)</span>
+                <span>{SITE.street}, {SITE.postal}</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2025 Minti Wellness. Alla rättigheter förbehållna.</p>
+          <p>&copy; 2026 Minti. En konceptsajt.</p>
           <div className="footer-legal">
-            <a href="/privacy">Integritetspolicy</a>
-            <span>|</span>
-            <a href="/terms">Användarvillkor</a>
+            <Link to="/privacy">Integritetspolicy</Link>
+            <span aria-hidden="true">|</span>
+            <Link to="/terms">Villkor</Link>
           </div>
         </div>
       </div>
@@ -68,4 +72,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
