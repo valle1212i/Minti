@@ -1218,4 +1218,41 @@
   .m-contact-item {
     padding: 1.25rem;
   }
+
+  /* Brödtext minst 16 px i mobil */
+  .m-small,
+  .m-demo-note,
+  .m-option-desc {
+    font-size: 1rem;
+  }
+
+  /* Tryckytor minst 44 px utan att texten flyttar sig: luft ovanför och under länken */
+  .m-card-link,
+  .m-contact-item .m-link {
+    padding: 0.75rem 0;
+  }
+
+  .m-breadcrumb a {
+    padding: 0.7rem 0;
+    margin: -0.7rem 0;
+  }
+
+  .m-card-foot .m-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Ingen automatisk avstavning av korta ord (AN-DAS, EL-LER) i rubrikerna */
+  .m-hero-title,
+  .m-title {
+    hyphens: manual;
+  }
+}
+
+/* Minsta telefonerna: långa ord i sidrubriken (ÅTERKOMMANDE) ryms utan att brytas */
+@media (max-width: 380px) {
+  .m-hero-title {
+    font-size: 1.75rem;
+  }
 }
