@@ -152,6 +152,36 @@
     flex-direction: column;
     text-align: center;
   }
+
+  /* Läsbar text (16 px) och tryckytor på minst 44 px i mobil */
+  .footer-description,
+  .footer-demo,
+  .footer-links li a,
+  .footer-contact li a,
+  .footer-contact li span:not(.contact-label) {
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    gap: 0;
+  }
+
+  .footer-links li a,
+  .footer-contact li a,
+  .footer-legal a {
+    display: inline-flex;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .footer-contact {
+    gap: 0.5rem;
+  }
+
+  .footer-contact li {
+    gap: 0;
+  }
 }
 
 

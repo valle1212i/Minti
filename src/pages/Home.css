@@ -6,6 +6,8 @@
 .hero {
   position: relative;
   height: 100vh;
+  /* Mobil: höjden på den synliga ytan när webbläsarens verktygsfält syns (100vh är reserv). */
+  height: 100svh;
   min-height: 600px;
   overflow: hidden;
   text-align: center;
@@ -551,6 +553,16 @@
   .accommodation-buttons .btn {
     width: 100%;
   }
+
+  /* Tryckyta minst 44 px för Läs mer och Vår restaurang */
+  .btn-link {
+    min-height: 44px;
+  }
+
+  /* Kortrubriken (ÖVERNATTNING) ryms i kortet på smala skärmar */
+  .card-content {
+    padding: 2rem 1.5rem;
+  }
 }
 
 
@@ -635,4 +647,11 @@
 /* Kocken står till höger i bilden; behåll honom i smala beskärningar. */
 .home .dining-image .home-section-image {
   object-position: 75% 50%;
+}
+
+/* Minsta telefonerna: WELLNESSCENTER ryms på en rad */
+@media (max-width: 380px) {
+  .home .section-title {
+    font-size: 1.75rem;
+  }
 }

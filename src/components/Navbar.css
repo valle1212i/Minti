@@ -365,6 +365,11 @@ html.m-scroll-lock body {
   .navbar-logo-img {
     height: 40px;
   }
+
+  /* Tryckyta minst 44 px; loggan är fortfarande 40 px hög */
+  .navbar-logo {
+    min-height: 44px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
